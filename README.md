@@ -1,5 +1,10 @@
-# proyecto DataHive
-# proyecto DataHive
+
+# Frontend - Sistema de Gestión Cooperativa
+
+Este repositorio contiene la interfaz visual del sistema de gestión para la cooperativa de viviendas, desarrollado como parte del Proyecto de Pasaje de Grado 2025.
+
+## Tecnologías utilizadas
+- HTML/CSS/JS
 # Cooperativa Vista Linda
 # Especificaciones
 # Lu usar rama-lu
