@@ -1,8 +1,8 @@
 function ingresoSocio() {
-    let userName = document.getElementById ("userName").value;
-    let userPassword = document.getElementById ("userPassword").value;
+    let cedula = document.getElementById ("cedula").value;
+    let password = document.getElementById ("password").value;
 
-    console.log("Nombre: "+userName+"\n");
-    console.log("CC: "+userPassword+"\n");
+    console.log("cedula: "+cedula+"\n");
+    console.log("CC: "+password+"\n");
 
 }

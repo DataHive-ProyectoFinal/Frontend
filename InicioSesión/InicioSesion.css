@@ -1,72 +1,54 @@
+
 *{
-    padding: 0%;
-    margin: 0%;
-    text-decoration: none;
-    color:black;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
-
-header, .content{
-    padding:20px;
-    position: sticky;
-    max-height: 90px;
-    display: flex;
-    align-items: center;
-    background-color: #CDCDCD;
+body{
+    font-family: "Poppins", sans-serif;
+    
 }
-
-li {
-    display: flex;
-    justify-content: end;
-    list-style: none;
-}
-
-ul{
-    display: flex;
-    justify-content: space-between;
-    margin-left:100vh;
-}
-
-a{
-    margin-left:3vh;
-}
-
-/**PADDING Y MARGIN Y FUENTE CON REM POR MI PESADA HERMOSA VALE**/
-.title-1{
-    padding: 5vh;
-    text-align: center;
-    background-color:#C1C1C1;
-    margin-bottom: 5vh;
-}
-
-.form{
+.contenido{
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-right: 30vh;
-    margin-left: 30vh;
-    height: 40vh;
-    background-color: #e1e1e1;
-    border-radius: 3vh;
-}
+    min-height: 100dvh;
+    grid-template-rows: 
+    auto 1fr auto;
+} 
 
-.column-2{
-    background-color: #f1f1f1;
-    display: flex;
-    align-items: center;
-    justify-content:center;
+:root{
+    --base-color: #e8f0ff;
+    --primary-color:#244696;
+    --primary-color-dark: #06358C;
+    --secondary-color: #51A81B;
+    --secondary-color-dark: #397e2d;
+    --text-dark:#093d26;
+    --text-light: #9ECA8B;
+    --text-light-secondary: #6578B6;
+    --text-dark-secondary:#011e53;
+    --extra-light: #EBECFA;
 }
-
-input {
-    margin-bottom: 2vh;
-    border-radius:0.5rem;
-    height: 2rem;
-    padding-left: 0.5rem;
-    border: none;
-}
+a{text-decoration: none; color: var(--text-dark-secondary);}
+ul{list-style: none;}
+h1{font-size: 2rem;}
+h2{font-size: 1.8rem;}
+h3{font-size: 1.5rem;}
+p{font-size: 1rem;}
 
 button{
-    display: flex;
-    padding: 0.5rem;
-    border-radius:0.5rem ;
-    border:#9b9b9b solid;
-    background-color: #c2c2c2;
+    padding: 0.7rem;
+    border-radius: 20px;
+    background-color: var(--text-dark-secondary);
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: 1px solid var(--extra-light);
 }
+
+button:hover{
+    border: 2.5px solid var(--primary-color);
+    background-color: var(--primary-color);
+    transition: 0.1s;
+    color: var(--extra-light);;
+}
+
+
