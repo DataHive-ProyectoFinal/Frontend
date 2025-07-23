@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Enfoque del Problema</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+  <link rel="stylesheet" href="Problema.css">
+</head>
+<body>
+  <section class="contenido">
+    <header>
+      <nav class="bg-blue-900 border-gray-200 dark:bg-blue-900">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse text-white">
+            <img src="logo-cooperativa.svg" class="h-11" alt="Cooperativa vista linda Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Cooperativa Vista Linda</span>
+          </a>
+          <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Ingresar</button>
+          </div>
+          <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1 text-white" id="navbar-cta">
+            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-blue-900 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-blue-900 dark:bg-blue-900 md:dark:bg-blue-900 dark:border-gray-700">
+              <li>
+                <a href="Home.html" class="block py-2 px-3 md:p-0 text-white hover:text-blue-500">Home</a>
+              </li>
+              <li>
+                <a href="../Home.html" class="block py-2 px-3 md:p-0 text-gray-1000 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Objetivos</a>
+              </li>
+              <li>
+                <a href="Problema.html" class="block py-2 px-3 md:p-0 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-500 md:dark:text-blue-500" aria-current="page">Enfoque del Problema</a>
+              </li>
+              <li>
+                <a href="#" class="block py-2 px-3 md:p-0 text-gray-1000 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-500 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">¡Quiero registrarme!</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <h2 id="title">La empresa busca solucionar varios problemas que enfrentan las cooperativas de viviendas de ayuda mutua.</h2>
+
+<section class="tarjetas">
+
+    <section class="info mx-auto flex flex-row justify-center gap-10 py-40">
+  
+  <div class="flip-card w-[25rem] h-[18rem] flex flex-col items-center">
+    <h2 class="mb-2 text-center text-blue-700 font-semibold text-lg">Centralización y digitalización de la información</h2>
+    <div class="flip-card-inner w-full h-[18rem]">
+      <div class="flip-card-front bg-red-100 p-4 rounded-xl shadow-lg flex items-center justify-center text-center">
+        <p>Muchas cooperativas todavía manejan los datos de los socios, los pagos, las horas de trabajo y el progreso de las obras de forma desorganizada, ya sea, en papeles, hojas sueltas, o sistemas no integrados. Esto hace que sea difícil acceder a la información rápida y seguramente, además de que puede llevar a errores o perder datos.</p>
+      </div>
+      <div class="flip-card-back bg-emerald-100 p-4 rounded-xl shadow-lg text-sm text-gray-800 text-center flex items-center justify-center">
+        <p>El sistema unifica todos los datos en una plataforma digital compuesta por aplicaciones interconectadas mediante APIs. Toda la información de los socios, pagos, horas de trabajo y estado de las unidades habitacionales estará almacenada en una base de datos centralizada, accesible desde cualquier dispositivo con conexión a internet. Esto reduce la dispersión de datos, mejora la organización y minimiza el riesgo de pérdida de información.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card w-[25rem] h-[18rem] flex flex-col items-center">
+    <h2 class="mb-2 text-center text-blue-700 font-semibold text-lg">Comunicación y transparencia entre los socios</h2>
+    <div class="flip-card-inner w-full h-[18rem]">
+      <div class="flip-card-front bg-red-100 p-4 rounded-xl shadow-lg flex items-center justify-center text-center">
+        <p>Los socios no siempre tienen la información actualizada sobre su situación, como si están al día con los pagos o las horas trabajadas, ni sobre cómo va la obra. Esto causa desconfianza y conflictos entre ellos.</p>
+      </div>
+      <div class="flip-card-back bg-emerald-100 p-4 rounded-xl shadow-lg text-sm text-gray-800 text-center flex items-center justify-center">
+        <p>Cada socio tendrá acceso a una plataforma personalizada donde podrá consultar su estado de cuenta (si está al día o no), las horas registradas, los pagos realizados y el avance del proyecto de obra. Esta visibilidad en tiempo real fomenta la transparencia, reduce rumores o malentendidos, y fortalece la confianza entre los miembros de la cooperativa.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card w-[25rem] h-[18rem] flex flex-col items-center">
+    <h2 class="mb-2 text-center text-blue-700 font-semibold text-lg">Dificultades en validar documentos y controlar aportes</h2>
+    <div class="flip-card-inner w-full h-[18rem]">
+      <div class="flip-card-front bg-red-100 p-4 rounded-xl shadow-lg flex items-center justify-center text-center">
+        <p>Revisar los comprobantes de pago y las horas de trabajo suele ser un proceso lento y manual, lo que puede retrasar aprobaciones y también puede generar errores o hasta fraudes.</p>
+      </div>
+      <div class="flip-card-back bg-emerald-100 p-4 rounded-xl shadow-lg text-sm text-gray-800 text-center flex items-center justify-center">
+        <p>El sistema permitirá subir comprobantes de pago y registrar horas de trabajo directamente desde la aplicación. Los administradores podrán aprobar o rechazar estos documentos desde un backoffice con interfaz sencilla, donde también podrán ver historiales y alertas automáticas. Esto agiliza los procesos, facilita los controles y reduce la posibilidad de fraudes, ya que todo queda registrado y auditable.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</section>
+
+    <section>
+      <div class="slogan">
+        <p>Unite al movimiento cooperativo!</p>
+      </div>
+    </section>
+
+    <footer class="bg-blue-900 shadow-sm dark:bg-blue-900">
+      <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+          <a href="#" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+            <img src="DataHive (Logo) (4).svg" class="h-16" alt="DataHive Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">DataHive</span>
+          </a>
+          <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-300 sm:mb-0 dark:text-gray-300">
+            <li><a href="#" class="hover:underline me-4 md:me-6">About</a></li>
+            <li><a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a></li>
+            <li><a href="#" class="hover:underline me-4 md:me-6">Licensing</a></li>
+            <li><a href="#" class="hover:underline">Contact</a></li>
+          </ul>
+        </div>
+        <hr class="my-6 border-gray-800 sm:mx-auto dark:border-gray-800 lg:my-8" />
+        <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="#" class="hover:underline">DataHive</a>. Todos los derechos reservados.</span>
+      </div>
+    </footer>
+  </section>
+</body>
+</html>
