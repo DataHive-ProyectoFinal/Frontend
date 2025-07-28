@@ -8,7 +8,7 @@
 }
 body{
     font-family: "Poppins", sans-serif;
-    
+    overflow-x: hidden;
 }
 .contenido{
     display: grid;
@@ -71,12 +71,18 @@ button:hover{
 }
 
 .tarjetas{
-  width: 2100px;
-  height: 500px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  overflow-x: hidden;
 }
 
 .flip-card {
-  perspective: 1000px;
+  perspective: 62.5rem;
   cursor: pointer;
 }
 
