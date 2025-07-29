@@ -1,28 +1,68 @@
+# 📝 Instrucciones para la Aplicación del Sistema
 
-# Frontend - Sistema de Gestión Cooperativa
+> 📄 *Este documento también se encuentra disponible en la rama `testing` del repositorio `Frontend` en GitHub.*
 
-Este repositorio contiene la interfaz visual del sistema de gestión para la cooperativa de viviendas, desarrollado como parte del Proyecto de Pasaje de Grado 2025.
+---
 
-## Tecnologías utilizadas
-- HTML/CSS/JS
-# Cooperativa Vista Linda
-# Especificaciones
-# Lu usar rama-lu
-# Sofi usar rama-sofi
+## 📦 Repositorios necesarios
 
-# Para actualizar, trar o hacer commit tenes que entrar a tu rama
-# Nunca se guarda la rama en la que estas, por eso tienen que todos los dias hacer cd para entrar a la carpeta del proyecto
-# no se olviden profi <3
+Clonar los siguientes repositorios desde GitHub:
 
-# ESPECIFICACIONES GENERALES
-#  1. NO nombrar mningun archivo como index, script, estilos, ETC. Usen nombres DESCRIPTIVIOS, por ejemplo form-registro para un formulario de registro.
-#  2. pasos a seguir para cada vez que vayan a programar
-#    - git branch (para fijarse en que rama estan)
-#  PARA SUBIR ACTUALIZACIONES A SUS RAMAS
-# git add .
-# git commit -m "Mensaje descriptivos sobre cambios"
-# git push (para subirlo)
+- `Frontend` 
+- `Api_usuarios` 
+- `Backend` *(No es necesario)*
+- `Base_de_datos`  *(No es necesario)*
 
-# si estan trabajando hace varios dias, hagan un git pull antes de continuar para actualizar su codigo
+> En cada uno, realizar un `git pull` desde la rama `main`.
 
-# ANTE CUALQUIER DUDA UNA LLAMADITA A VALEN
+---
+
+##  Configuración de la Base de Datos
+
+1. Abrir `phpMyAdmin`.
+2. Crear una nueva base de datos para la cooperativa.
+3. Importar el archivo `.sql` correspondiente desde el repositorio `Base_de_datos`.
+
+---
+
+##  Configuración en XAMPP
+
+1. Iniciar **Apache** y **MySQL** desde el panel de XAMPP.
+2. Copiar las carpetas `Frontend` y `api_usuarios` dentro de:
+   ```
+   C:\xampp\htdocs\
+   ```
+
+---
+
+##  Ruta para el Registro de Usuario
+
+1. Abrir la *landing page* en el navegador desde la terminal VS:
+2. Hacer clic en **"¡Quiero registrarme!"**.
+3. Completar el formulario y hacer clic en **"Registrarme"**.
+4. La solicitud será enviada automáticamente al BackOffice del administrador.
+
+---
+
+##  Ruta para el Administrador
+
+1. Para ver la lista de solicitudes, ingresar en el navegador:
+   ```
+   http://localhost/api_usuarios/admin_solicitudes.php
+   ```
+2. Hacer clic en **"Aceptar"** para aprobar una solicitud.
+3. Se abrirá un formulario para crear el usuario.
+4. La contraseña se genera automáticamente. Copiarla y pegarla en el campo **"Escribir contraseña"**.
+5. Hacer clic en **"Crear Usuario"** para finalizar el proceso.
+
+---
+
+##  Ruta de Inicio de Sesión para el Socio
+
+1. Desde el *Home* de la cooperativa, hacer clic en **"Ingresar"**.
+2. Introducir la **cédula** y la **contraseña generada** anteriormente.
+3. Al iniciar sesión, se mostrará un mensaje de "Sitio en mantenimiento".
+4. Al hacer clic en **"Cerrar sesión"**, se redireccionará nuevamente al *Home*.
+
+---
+
