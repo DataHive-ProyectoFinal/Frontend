@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
-    <link rel="stylesheet" href="frontend_horas.css">
+    <link rel="stylesheet" href="reporte_jornadas.css">
 
     <title>Home socios - Horas trabajadas</title>
 </head>
@@ -80,7 +80,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="frontend-horas.html" class="flex items-center p-2 text-gray-200 rounded-lg  bg-green-600 bg-green-600 group">
+                        <a href="frontend_horas.html" class="flex items-center p-2 text-gray-200 rounded-lg  hover:bg-green-600 hover:bg-green-600 group">
                         <svg class="shrink-0 w-6 h-6  transition duration-75 text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
                         </svg>
@@ -111,60 +111,26 @@
                         </a>
                     </li>
                     <li>
-                        <a href="reporte_jornadas.html" class="flex items-center p-2  rounded-lg text-white hover:bg-green-600 group">
-                        <svg class="shrink-0 w-5 h-5  transition duration-75 text-gray-200 group-hover:text-gray-900 " aria-hidden="true"  fill="currentColor" viewBox="0 0 20 20">
-                            <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
+                        <a href="#" class="flex items-center p-2 text-gray-200 rounded-lg bg-green-600 bg-green-600 group">
+                        <svg class="shrink-0 w-6 h-6  transition duration-75 text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M5 5a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1 2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a2 2 0 0 1 2-2ZM3 19v-7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm6.01-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-10 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" clip-rule="evenodd"/>
                         </svg>
+
                         <span class="flex-1 ms-3 whitespace-nowrap">Jornadas Ingresadas</span>
                         </a>
                     </li>
-                
-                    
                 </ul>
             </div>
             </aside>
-        <div class="card">
-                <h2>Registrar horas de trabajo</h2>
-                <p class="small">Selecciona el día en el calendario. Luego completa horas, descripción y envía.</p>
-            <div class="form-content">
-                <div>
-                    <label class="small">Mes</label>
-                    <select class="selectMes" id="selectMes"></select>
-                </div>
-            <div>
-                <label class="small">Año</label>
-                <select class="selectYear" id="selectYear"></select>
+            <div class="reporte_horas">
+            <h2>Reporte de Jornadas</h2>
+
+                <h3>Año Actual</h3>
+                <table id="tablaActual"></table>
+
+                <h3>Año Anterior</h3>
+                <table id="tablaAnterior"></table>
             </div>
-        </div>
-
-        <div class="msg" id="mensajes" ></div>
-
-        <div class="calendar-content" >
-        <div id="calendarHeader" class="row small"></div>
-        <div id="calendar" class="calendar" aria-hidden="false"></div>
-        </div>
-
-        <form id="registroForm" class="form" method="post" action="" onsubmit="return beforeSubmit()">
-            <input type="hidden" name="mes" id="inputMes">
-            <input type="hidden" name="dia" id="inputDia">
-            <input type="hidden" name="year" id="inputYear">
-            <input type="hidden" name="weekday" id="inputWeekday">
-
-        <div class="hours-input">
-            <label class="small">Horas trabajadas (ej: 8 o 7.5)</label><br>
-            <input class="horas" name="horas" id="horas" required placeholder="Horas" pattern="^\d{1,2}(?:\.\d+)?$">
-        </div>
-        <div class="descripcion-input">
-            <label class="small">Descripción (opcional)</label><br>
-            <textarea class="descripcion" name="descripcion" rows="2" maxlength="255" style="width:100%"></textarea>
-        </div>
-        <div class="boton" >
-            <button type="submit" class="btn">Guardar registro</button>
-        </div>
-        </form>
-</section>
-
-<script src="../../api_cooperativa/registro _horas/frontend_horas.js"></script>
-
+<script src="../../api_cooperativa/registro _horas/reporte_jornadas.js"></script>
 </body>
 </html>
