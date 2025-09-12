@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    font-family: "Poppins", sans-serif;
+    
+}
+.contenido{
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: 
+    auto 1fr auto;
+}
+:root{
+    --base-color: #e8f0ff;
+    --primary-color:#244696;
+    --primary-color-dark: #06358C;
+    --secondary-color: #51A81B;
+    --secondary-color-dark: #397e2d;
+    --text-dark:#093d26;
+    --text-light: #9ECA8B;
+    --text-light-secondary: #6578B6;
+    --text-dark-secondary:#011e53;
+    --extra-light: #EBECFA;
+
+}
+a{text-decoration: none; color: var(--text-dark-secondary);}
+ul{list-style: none;}
+h1{font-size: 2rem;}
+h2{font-size: 1.8rem;}
+h3{font-size: 1.5rem;}
+p{font-size: 1rem;}
+
+.hero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    height: 70vh;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.1),
+        rgba(0,0,0,0.1)
+    )
+    ,url("../multimedia/carousel-banner-frontend-cooperativa.png");
+    background-repeat: no-repeat;
+    background-size:contain;
+    background-position: center center;
+    
+
+
+   }.profileBox{
+   margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--base-color);
+    color: var(--primary-color-dark);
+    text-align: center;
+}
+
+.card-container{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+    grid-template-areas: 
+    "card1 card2"
+    "card3 card3";
+}
+.card1{
+    border-radius: 30px;
+    grid-area: card1;
+}
+.card2{
+    border-radius: 30px;
+    grid-area: card2;
+
+}
+.card3{
+    border-radius: 30px;
+    grid-area: card3;
+}
+
