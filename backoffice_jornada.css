@@ -44,7 +44,7 @@ p{font-size: 1rem;}
     justify-content: center;
     background-color: #c6d2e9;
     
-    /*background-image: linear-gradient(
+   /* background-image: linear-gradient(
         0deg,
         rgba(0,0,0,0.5),
         rgba(0,0,0,0.5)
@@ -57,9 +57,8 @@ p{font-size: 1rem;}
 .hero-title{
     text-align: center;
     font-weight: bold;
-    font-size: 3rem;
-    color: black;
-    text-shadow: 2px 2px 10px var(--primary-color);
+    font-size: 2rem;
+    color: var(--text-dark-secondary);
 }
 
 .filtro{
@@ -72,8 +71,8 @@ p{font-size: 1rem;}
     margin: 0 2rem;
     border: 0.1rem solid var(--text-light-secondary);
     border-radius: 0.5rem;
-    color: var(--base-color);
 }
+
 
 .filtro-button, td button{
     background-color: var(--primary-color);
@@ -88,27 +87,22 @@ p{font-size: 1rem;}
     color:var(--base-color);
 }
 
+
 button:hover{
     background-color: var(--text-light-secondary);
     padding: 0.6rem 1.5rem;
     color:var(--base-color);    
 }
 
-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 table { 
     width: 100%; 
     border-collapse: collapse; 
-    margin-top: 20px; 
+    margin-top: 2rem; 
 }
 
 th, td { 
     border: 1px solid #999; 
-    padding: 8px; 
+    padding: 1rem; 
     text-align: center; }
 
 th { 
@@ -117,12 +111,14 @@ th {
 
 .error { 
     background:#fee2e2;
-    color:#b91c1c
+    color:#b91c1c;
+    
 }
 
 .success { 
     background:#ecfdf5;
-    color:#065f46
+    color:#065f46;
+    padding: 1rem;
 }
 
 .verificado { 
@@ -131,4 +127,15 @@ th {
 
 .no-verificado { 
     background-color: #f8d7da; 
+    
+}
+
+/*Mensaje del js*/
+p{
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--text-light-secondary);
+    color: var(--base-color);
+    
 }

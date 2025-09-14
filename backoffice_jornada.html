@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
-    <link rel="stylesheet" href="frontend_horas.css">
+    <link rel="stylesheet" href="backoffice_jornada.css">
 
-    <title>Home socios - Horas trabajadas</title>
+    <title>Home Backoffice Administrativo</title>
 </head>
 <body>
     <section class="contenido">
+        
+
             <nav class="fixed top-0 z-50 w-full bg-blue-900 border-b border-gray-200 dark:border-gray-700">
             <div class="px-3 py-3 lg:px-5 lg:pl-3">
                 <div class="flex items-center justify-between">
@@ -25,7 +26,7 @@
                     </button>
                     <a href="#" class="flex ms-2 md:me-24">
                     <img src="../multimedia/logo-cooperativa.svg" class="h-11 me-3" alt="Vista Linda Logo" />
-                    <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white">Vista Linda - Socios</span>
+                    <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white">Vista Linda - Backoffice</span>
                     </a>
                 </div>
                 <div class="flex items-center">
@@ -33,16 +34,16 @@
                         <div>
                         <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
+                            <img class="w-8 h-8 rounded-full" src="../multimedia/user-icon.png" alt="user photo">
                         </button>
                         </div>
                         <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-md shadow-sm dark:bg-green-900 dark:divide-gray-600" id="dropdown-user">
                         <div class="px-4 py-3" role="none">
                             <p class="text-sm text-gray-900 dark:text-white" role="none">
-                            Nombre Usuario
+                             Nombre de usuario
                             </p>
                             <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                            valentina@gmail.com
+                            usuario@gmail.com
                             </p>
                         </div>
                         <ul class="py-1" role="none">
@@ -67,25 +68,25 @@
                         <svg class="shrink-0 w-6 h-6  transition duration-75 text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                             <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
                         </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Ver perfil</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Mi perfil</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center p-2 text-gray-200 rounded-lg  hover:bg-green-600 hover:bg-green-600 group">
+                        <a href="admin_pagos.html" class="flex items-center p-2 text-gray-200 rounded-lg  hover:bg-green-600 hover:bg-green-600 group">
                         <svg class="shrink-0 w-6 h-6  transition duration-75 text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M5 5a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1 2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a2 2 0 0 1 2-2ZM3 19v-7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm6.01-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-10 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" clip-rule="evenodd"/>
                         </svg>
 
-                        <span class="flex-1 ms-3 whitespace-nowrap">Pagos</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Verificar pagos</span>
                         </a>
                     </li>
                     <li>
-                        <a href="frontend-horas.html" class="flex items-center p-2 text-gray-200 rounded-lg  bg-green-600 bg-green-600 group">
+                        <a href="#" class="flex items-center p-2 text-gray-200 rounded-lg  bg-green-600 bg-green-600 group">
                         <svg class="shrink-0 w-6 h-6  transition duration-75 text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
                         </svg>
 
-                        <span class="flex-1 ms-3 whitespace-nowrap">Horas trabajadas</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Ver horas trabajadas</span>
                         </a>
                     </li>
                     
@@ -95,7 +96,8 @@
                             <path fill-rule="evenodd" d="M4 4a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2v14a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2V5a1 1 0 0 1-1-1Zm5 2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H9Zm5 0a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-1Zm-5 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H9Zm5 0a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1Zm-3 4a2 2 0 0 0-2 2v3h2v-3h2v3h2v-3a2 2 0 0 0-2-2h-2Z" clip-rule="evenodd"/>
                         </svg>
 
-                        <span class="flex-1 ms-3 whitespace-nowrap">Avances de la obra</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Avances de obra</span>
+                        <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800  rounded-full bg-green-900 text-green-300">+</span>
                         </a>
                     </li>
                     
@@ -106,65 +108,155 @@
                         <svg class="shrink-0 w-5 h-5  transition duration-75 text-gray-200 group-hover:text-gray-900 " aria-hidden="true"  fill="currentColor" viewBox="0 0 20 20">
                             <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
                         </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Reportes</span>
-                        <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800  rounded-full bg-green-900 text-green-300">7</span>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Hacer reporte</span>
+                        <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800  rounded-full bg-green-900 text-green-300">+</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="reporte_jornadas.html" class="flex items-center p-2  rounded-lg text-white hover:bg-green-600 group">
-                        <svg class="shrink-0 w-5 h-5  transition duration-75 text-gray-200 group-hover:text-gray-900 " aria-hidden="true"  fill="currentColor" viewBox="0 0 20 20">
-                            <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
-                        </svg>
-                        <span class="flex-1 ms-3 whitespace-nowrap">Jornadas Ingresadas</span>
-                        </a>
-                    </li>
+                    
                 
                     
                 </ul>
             </div>
             </aside>
-        <div class="card">
-                <h2>Registrar horas de trabajo</h2>
-                <p class="small">Selecciona el día en el calendario. Luego completa horas, descripción y envía.</p>
-            <div class="form-content">
-                <div>
-                    <label class="small">Mes</label>
-                    <select class="selectMes" id="selectMes"></select>
+
+
+
+        <div class="bg-white h-screen  sm:ml-64">
+                <div class=" border-1 bg-white rounded-lg dark:border-gray-700 mt-14">
+                    <div class="hero">
+                        <h2 class="hero-title">Jornadas Laborales</h2>
+                    </div>
+                    <div class="filtro">
+                        <form id="buscarForm">
+                        <label>Cédula del socio:</label>
+                        <input type="number" name="ci_usuario" id="ci_usuario" placeholder="Ingrese cédula" required>
+                        <button type="submit" class="filtro-button">Buscar</button>
+                        </form>
+                    </div>
+                    <div id="mensajes"></div>
+
+                    <div id="tablaJornadas"></div>
+                    
                 </div>
-            <div>
-                <label class="small">Año</label>
-                <select class="selectYear" id="selectYear"></select>
             </div>
-        </div>
+        </section>
+<script>
+    document.getElementById("buscarForm").addEventListener("submit", async e => { 
+    e.preventDefault();
+    const ci_usuario = document.getElementById("ci_usuario").value.trim();
+    if (!ci_usuario) return;
 
-        <div class="msg" id="mensajes" ></div>
+    try {
+        const res = await fetch("../api_cooperativa/backoffice_jornada.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `ci_usuario=${encodeURIComponent(ci_usuario)}`
+        });
 
-        <div class="calendar-content" >
-        <div id="calendarHeader" class="row small"></div>
-        <div id="calendar" class="calendar" aria-hidden="false"></div>
-        </div>
+        const data = await res.json();
 
-        <form id="registroForm" class="form" method="post" action="" onsubmit="return beforeSubmit()">
-            <input type="hidden" name="mes" id="inputMes">
-            <input type="hidden" name="dia" id="inputDia">
-            <input type="hidden" name="year" id="inputYear">
-            <input type="hidden" name="weekday" id="inputWeekday">
+        const mensajesDiv = document.getElementById("mensajes");
+        mensajesDiv.innerHTML = "";
+        if (data.messages) {
+            data.messages.forEach(m => {
+                const p = document.createElement("p");
+                p.className = m.type;
+                p.textContent = m.text;
+                mensajesDiv.appendChild(p);
+            });
+        }
 
-        <div class="hours-input">
-            <label class="small">Horas trabajadas (ej: 8 o 7.5)</label><br>
-            <input class="horas" name="horas" id="horas" required placeholder="Horas" pattern="^\d{1,2}(?:\.\d+)?$">
-        </div>
-        <div class="descripcion-input">
-            <label class="small">Descripción (opcional)</label><br>
-            <textarea class="descripcion" name="descripcion" rows="2" maxlength="255" style="width:100%"></textarea>
-        </div>
-        <div class="boton" >
-            <button type="submit" class="btn">Guardar registro</button>
-        </div>
-        </form>
-</section>
+        const tablaDiv = document.getElementById("tablaJornadas");
+        tablaDiv.innerHTML = "";
 
-<script src="../../api_cooperativa/registro _horas/frontend_horas.js"></script>
+        if (data.jornadas && data.jornadas.length > 0) {
+            // Filtrar jornadas ya verificadas
+            const jornadasFiltradas = data.jornadas.filter(j => !j.verificado);
 
+            if (jornadasFiltradas.length === 0) {
+                tablaDiv.innerHTML = "<p>No hay jornadas pendientes de verificación.</p>";
+                return;
+            }
+
+            // Agrupar por semana para marcar colores
+            const semanas = {};
+            jornadasFiltradas.forEach(j => {
+                const fecha = new Date(j.fecha);
+                const year = fecha.getFullYear();
+                const week = getWeekNumber(fecha);
+                const key = `${year}-S${week}`;
+                if (!semanas[key]) semanas[key] = [];
+                semanas[key].push(j);
+            });
+
+            const table = document.createElement("table");
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Semana</th>
+                        <th>Mes</th>
+                        <th>Fecha</th>
+                        <th>Horas trabajadas</th>
+                        <th>Descripción</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            `;
+            const tbody = table.querySelector("tbody");
+
+            for (let semana in semanas) {
+                const semanaData = semanas[semana];
+                const totalHoras = semanaData.reduce((acc,j)=>acc+parseFloat(j.horas_semanales),0);
+                const colorClass = totalHoras >= 21 ? "verificado" : "no-verificado";
+
+                semanaData.forEach(j => {
+                    const fechaObj = new Date(j.fecha);
+                    const tr = document.createElement("tr");
+                    tr.className = colorClass;
+                    tr.innerHTML = `
+                        <td>${semana}</td>
+                        <td>${fechaObj.toLocaleString('es-ES', {month:'long'})}</td>
+                        <td>${j.fecha}</td>
+                        <td>${j.horas_semanales}</td>
+                        <td>${j.descripcion || ""}</td>
+                        <td><button data-id="${j.id}">Verificar</button></td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }
+
+            tablaDiv.appendChild(table);
+
+            // Event listener para verificar
+            tablaDiv.querySelectorAll("button[data-id]").forEach(btn => {
+                btn.addEventListener("click", async () => {
+                    const id = btn.dataset.id;
+                    try {
+                        const resVer = await fetch(`../api_cooperativa/backoffice_jornada.php?verificar_id=${id}`, { method: "GET" });
+                        const dataVer = await resVer.json();
+                        alert(dataVer.messages[0].text); // mensaje simple
+                        document.getElementById("buscarForm").dispatchEvent(new Event("submit")); // refresca tabla
+                    } catch(error) {
+                        console.error("Error al verificar:", error);
+                    }
+                });
+            });
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+});
+
+// Función para obtener número de semana ISO
+function getWeekNumber(d) {
+    d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    const dayNum = d.getUTCDay() || 7;
+    d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+    const yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+    return Math.ceil((((d - yearStart) / 86400000) + 1)/7);
+}
+
+</script>
 </body>
 </html>

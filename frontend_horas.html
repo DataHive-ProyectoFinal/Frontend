@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
-    <link rel="stylesheet" href="reporte_jornadas.css">
+    <link rel="stylesheet" href="frontend_horas.css">
 
     <title>Home socios - Horas trabajadas</title>
 </head>
@@ -42,7 +42,7 @@
                             Nombre Usuario
                             </p>
                             <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                            valentina@gmail.com
+                            usuario@gmail.com
                             </p>
                         </div>
                         <ul class="py-1" role="none">
@@ -63,7 +63,7 @@
                 <ul class="space-y-2 font-medium">
 
                     <li>
-                        <a href="verPerfil.html" class="flex items-center p-2 text-gray-200 rounded-lg  hover:bg-green-600 hover:bg-green-600 group">
+                        <a href="perfil-usuario.html" class="flex items-center p-2 text-gray-200 rounded-lg  hover:bg-green-600 hover:bg-green-600 group">
                         <svg class="shrink-0 w-6 h-6  transition duration-75 text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                             <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
                         </svg>
@@ -80,7 +80,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="frontend_horas.html" class="flex items-center p-2 text-gray-200 rounded-lg  hover:bg-green-600 hover:bg-green-600 group">
+                        <a href="frontend_horas.html" class="flex items-center p-2 text-gray-200 rounded-lg  bg-green-600 bg-green-600 group">
                         <svg class="shrink-0 w-6 h-6  transition duration-75 text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
                         </svg>
@@ -111,7 +111,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center p-2 text-gray-200 rounded-lg bg-green-600 bg-green-600 group">
+                        <a href="reporte_horas.html" class="flex items-center p-2 text-gray-200 rounded-lg  hover:bg-green-600 hover:bg-green-600 group">
                         <svg class="shrink-0 w-6 h-6  transition duration-75 text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                             <path fill-rule="evenodd" d="M5 5a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1 2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a2 2 0 0 1 2-2ZM3 19v-7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm6.01-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-10 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" clip-rule="evenodd"/>
                         </svg>
@@ -122,15 +122,206 @@
                 </ul>
             </div>
             </aside>
-            <div class="reporte_horas">
-            <h2>Reporte de Jornadas</h2>
-
-                <h3>Año Actual</h3>
-                <table id="tablaActual"></table>
-
-                <h3>Año Anterior</h3>
-                <table id="tablaAnterior"></table>
+        <div class="card">
+                <h2>Registrar horas de trabajo</h2>
+                <p class="small">Selecciona el día en el calendario. Luego completa horas, descripción y envía.</p>
+            <div class="form-content">
+                <div>
+                    <label class="small">Mes</label>
+                    <select class="selectMes" id="selectMes"></select>
+                </div>
+            <div>
+                <label class="small">Año</label>
+                <select class="selectYear" id="selectYear"></select>
             </div>
-<script src="../../api_cooperativa/registro _horas/reporte_jornadas.js"></script>
+        </div>
+
+        <div class="msg" id="mensajes" ></div>
+
+        <div class="calendar-content" >
+        <div id="calendarHeader" class="row small"></div>
+        <div id="calendar" class="calendar" aria-hidden="false"></div>
+        </div>
+
+        <form id="registroForm" class="form" method="post" action="" onsubmit="return beforeSubmit()">
+            <input type="hidden" name="mes" id="inputMes">
+            <input type="hidden" name="dia" id="inputDia">
+            <input type="hidden" name="year" id="inputYear">
+            <input type="hidden" name="weekday" id="inputWeekday">
+        
+        <div class="ci-input">
+            <label class="small">Cédula</label><br>
+            <input class="horas" name="ci_usuario" id="ci_usuario" required placeholder="1234567-8">
+        </div>
+        <div class="hours-input">
+            <label class="small">Horas trabajadas (ej: 8 o 7.5)</label><br>
+            <input type="number" class="horas" name="horas" id="horas" required placeholder="Horas" pattern="^\d{1,2}(?:\.\d+)?$">
+        </div>
+        <div class="descripcion-input">
+            <label class="small">Descripción (opcional)</label><br>
+            <textarea class="descripcion" name="descripcion" rows="2" maxlength="255" style="width:100%"></textarea>
+        </div>
+        <div class="boton" >
+            <button type="submit" class="btn">Guardar registro</button>
+        </div>
+        </form>
+</section>
+
+<script>
+const monthNames = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const weekdays = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+
+const selectMes = document.getElementById('selectMes');
+const selectYear = document.getElementById('selectYear');
+const calendarEl = document.getElementById('calendar');
+const calendarHeader = document.getElementById('calendarHeader');
+
+const inputMes = document.getElementById('inputMes');
+const inputDia = document.getElementById('inputDia');
+const inputYear = document.getElementById('inputYear');
+const inputWeekday = document.getElementById('inputWeekday');
+
+// poblar selects
+const now = new Date();
+for (let i=0;i<12;i++) {
+  const opt = document.createElement('option');
+  opt.value = i+1;
+  opt.textContent = monthNames[i];
+  if (i===now.getMonth()) opt.selected = true;
+  selectMes.appendChild(opt);
+}
+for (let y = now.getFullYear()-1; y <= now.getFullYear()+1; y++) {
+  const opt = document.createElement('option');
+  opt.value = y;
+  opt.textContent = y;
+  if (y===now.getFullYear()) opt.selected = true;
+  selectYear.appendChild(opt);
+}
+
+function renderCalendar() {
+  const mes = parseInt(selectMes.value, 10) - 1; // JS months 0-11
+  const year = parseInt(selectYear.value, 10);
+  calendarEl.innerHTML = '';
+  calendarHeader.innerHTML = '';
+
+  // header (weekdays)
+  for (let d=0; d<7; d++) {
+    const el = document.createElement('div');
+    el.className = 'small';
+    el.style.textAlign='center';
+    el.style.fontWeight='600';
+    el.textContent = weekdays[d].slice(0,3);
+    calendarHeader.appendChild(el);
+  }
+
+  const firstDay = new Date(year, mes, 1).getDay();
+  const daysInMonth = new Date(year, mes+1, 0).getDate();
+
+  // fill leading empty cells
+  for (let i=0;i<firstDay;i++){
+    const c = document.createElement('div'); c.className='cell disabled'; calendarEl.appendChild(c);
+  }
+
+  // fill days
+  for (let d=1; d<=daysInMonth; d++){
+    const date = new Date(year, mes, d);
+    const c = document.createElement('div');
+    c.className='cell';
+    c.textContent = d;
+
+    // no permitir seleccionar días futuros
+    const today = new Date();
+    today.setHours(0,0,0,0);
+    const dateOnly = new Date(year, mes, d);
+    if (dateOnly > today) {
+      c.classList.add('disabled');
+      c.title = 'No puedes seleccionar días futuros';
+    } else {
+      c.addEventListener('click', ()=> selectDay(d, mes+1, year));
+      // marcar hoy
+      const isToday = (dateOnly.getTime() === today.getTime());
+      if (isToday) c.classList.add('today');
+    }
+
+    calendarEl.appendChild(c);
+  }
+}
+
+function selectDay(dia, mes, year){
+  // deseleccionar previo
+  document.querySelectorAll('.cell.selected').forEach(el=>el.classList.remove('selected'));
+  // encontrar celda
+  const cells = Array.from(calendarEl.querySelectorAll('.cell')).filter(c=>!c.classList.contains('disabled'));
+  const target = cells.find(c => c.textContent==String(dia));
+  if (target) target.classList.add('selected');
+
+  // set inputs
+  inputMes.value = mes;
+  inputDia.value = dia;
+  inputYear.value = year;
+  const fecha = new Date(year, mes-1, dia);
+  inputWeekday.value = weekdays[fecha.getDay()];
+}
+
+// evitar enviar sin día
+function beforeSubmit(){
+  if (!inputMes.value || !inputDia.value || !inputYear.value) {
+    alert('Selecciona un día en el calendario antes de enviar.');
+    return false;
+  }
+  // validar horas (cliente)
+  const hrs = document.getElementById('horas').value;
+  if (!/^(\d{1,2})(?:\.\d+)?$/.test(hrs) || parseFloat(hrs) < 0 || parseFloat(hrs) > 24) {
+    alert('Ingresa horas válidas entre 0 y 24.');
+    return false;
+  }
+  return true;
+}
+
+selectMes.addEventListener('change', renderCalendar);
+selectYear.addEventListener('change', renderCalendar);
+renderCalendar();
+// pre-seleccionar hoy si es válido
+(function preSelectToday(){
+  const t = new Date();
+  const todayCell = Array.from(calendarEl.querySelectorAll('.cell')).find(c => c.textContent == t.getDate() && !c.classList.contains('disabled'));
+  if (todayCell) { todayCell.click(); }
+})();
+
+// ======================
+// Envío de formulario con AJAX
+// ======================
+
+document.getElementById("registroForm").addEventListener("submit", async e => {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+
+  try {
+    const res = await fetch("../api_cooperativa/frontend_horas.php", {
+      method: "POST",
+      body: formData
+    });
+    
+    const messages = await res.json();
+
+    const container = document.getElementById("mensajes");
+    container.innerHTML = "";
+
+    messages.forEach(m => {
+      const div = document.createElement("div");
+      div.className = "msg " + m.type;
+      div.textContent = m.text;
+      container.appendChild(div);
+    });
+  } catch (error) {
+    console.error("Error al enviar datos:", error);
+  }
+});
+
+console.log("frontend_horas.js cargado");
+
+</script>
+
 </body>
 </html>
