@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Pagos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+
+</head>
+<body class="">
+
+
+
+ <section class="contenido">
+        
+
+            <nav class="fixed top-0 z-50 w-full bg-blue-900 border-b border-gray-200 dark:border-gray-700">
+            <div class="px-3 py-3 lg:px-5 lg:pl-3">
+                <div class="flex items-center justify-between">
+                <div class="flex items-center justify-start rtl:justify-end">
+                    <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm text-blue-500 rounded-lg sm:hidden hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-blue-400 dark:hover:bg-green-700 dark:focus:ring-gray-600">
+                        <span class="sr-only">Open sidebar</span>
+                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                        </svg>
+                    </button>
+                    <a href="#" class="flex ms-2 md:me-24">
+                    <img src="../multimedia/logo-cooperativa.svg" class="h-11 me-3" alt="Vista Linda Logo" />
+                    <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white">Vista Linda - Backoffice</span>
+                    </a>
+                </div>
+                <div class="flex items-center">
+                    <div class="flex items-center ms-3">
+                        <div>
+                        <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
+                            <span class="sr-only">Open user menu</span>
+                            <img class="w-8 h-8 rounded-full" src="../multimedia/user-icon.png" alt="user photo">
+                        </button>
+                        </div>
+                        <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-md shadow-sm dark:bg-green-900 dark:divide-gray-600" id="dropdown-user">
+                        <div class="px-4 py-3" role="none">
+                            <p class="text-sm text-gray-900 dark:text-white" role="none">
+                             Nombre de usuario
+                            </p>
+                            <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                            usuario@gmail.com
+                            </p>
+                        </div>
+                        <ul class="py-1" role="none">
+                        
+                            <li>
+                            <a href="#" class="block px-4 py-2 text-sm text-red-300  dark:hover:text-red-200" role="menuitem">Cerrar sesion</a>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </nav>
+
+            <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-green-700 border-r border-gray-200 sm:translate-x-0  dark:border-gray-700" aria-label="Sidebar">
+            <div class="h-full px-3 pb-4 overflow-y-auto bg-green-700 ">
+                <ul class="space-y-2 font-medium">
+
+                    <li>
+                        <a href="home-backoffice.html" class="flex items-center p-2 text-gray-200 rounded-lg  hover:bg-green-600 hover:bg-green-600 group">
+                        <svg class="shrink-0 w-6 h-6  transition duration-75 text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
+                            <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z"/>
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Mi perfil</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin_pagos.html" class="flex items-center p-2 text-gray-200 rounded-lg  hover:bg-green-600 hover:bg-green-600 group">
+                        <svg class="shrink-0 w-6 h-6  transition duration-75 text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M5 5a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1h1a1 1 0 0 0 1-1 1 1 0 1 1 2 0 1 1 0 0 0 1 1 2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a2 2 0 0 1 2-2ZM3 19v-7a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Zm6.01-6a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm-10 4a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm2 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" clip-rule="evenodd"/>
+                        </svg>
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Verificar pagos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-2 text-gray-200 rounded-lg  hover:bg-green-600 hover:bg-green-600 group">
+                        <svg class="shrink-0 w-6 h-6  transition duration-75 text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z" clip-rule="evenodd"/>
+                        </svg>
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Ver horas trabajadas</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="#" class="flex items-center p-2 text-gray-200 rounded-lg  hover:bg-green-600 hover:bg-green-600 group">
+                        <svg class="shrink-0 w-6 h-6  transition duration-75 text-gray-200 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M4 4a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2v14a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2V5a1 1 0 0 1-1-1Zm5 2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H9Zm5 0a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1h-1Zm-5 4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H9Zm5 0a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1h-1Zm-3 4a2 2 0 0 0-2 2v3h2v-3h2v3h2v-3a2 2 0 0 0-2-2h-2Z" clip-rule="evenodd"/>
+                        </svg>
+
+                        <span class="flex-1 ms-3 whitespace-nowrap">Avances de obra</span>
+                        <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800  rounded-full bg-green-900 text-green-300">+</span>
+                        </a>
+                    </li>
+                    
+                    
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-2  rounded-lg text-white hover:bg-green-600 group">
+                        <svg class="shrink-0 w-5 h-5  transition duration-75 text-gray-200 group-hover:text-gray-900 " aria-hidden="true"  fill="currentColor" viewBox="0 0 20 20">
+                            <path d="m17.418 3.623-.018-.008a6.713 6.713 0 0 0-2.4-.569V2h1a1 1 0 1 0 0-2h-2a1 1 0 0 0-1 1v2H9.89A6.977 6.977 0 0 1 12 8v5h-2V8A5 5 0 1 0 0 8v6a1 1 0 0 0 1 1h8v4a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-4h6a1 1 0 0 0 1-1V8a5 5 0 0 0-2.582-4.377ZM6 12H4a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Z"/>
+                        </svg>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Hacer reporte</span>
+                        <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800  rounded-full bg-green-900 text-green-300">+</span>
+                        </a>
+                    </li>
+                    
+                
+                    
+                </ul>
+            </div>
+            </aside>
+
+
+            <!---------------------------------------------------------------------------------------------->
+
+
+            <div class="bg-white h-screen  sm:ml-64 max-w-6xl mx-auto bg-white shadow-md mt-16 rounded-lg p-6">
+              <h2 class="text-2xl font-bold mb-4">Pagos registrados</h2>
+
+              <table class="w-full border-collapse border border-gray-300 text-sm">
+                <thead>
+                  <tr class="bg-gray-200">
+                    <th class="border border-gray-300 px-4 py-2">ID</th>
+                    <th class="border border-gray-300 px-4 py-2">Cédula</th>
+                    <th class="border border-gray-300 px-4 py-2">Monto</th>
+                    <th class="border border-gray-300 px-4 py-2">Tipo</th>
+                    <th class="border border-gray-300 px-4 py-2">Comprobante</th>
+                    <th class="border border-gray-300 px-4 py-2">Fecha</th>
+                    <th class="border border-gray-300 px-4 py-2">Estado</th>
+                  </tr>
+                </thead>
+                <tbody id="tablaPagos"></tbody>
+              </table>
+            </div>
+
+            <script>
+            async function cargarPagos() {
+              try {
+                const res = await fetch("http://localhost/Proyecto-DataHive-primeraEntrega/api_cooperativa/pagos/listar_pagos.php");
+                const data = await res.json();
+
+                const tabla = document.getElementById("tablaPagos");
+                tabla.innerHTML = "";
+
+                if (!data || data.length === 0) {
+                  tabla.innerHTML = `<tr><td colspan="7" class="text-center p-4">No hay pagos registrados</td></tr>`;
+                  return;
+                }
+
+                data.forEach(pago => {
+                  tabla.innerHTML += `
+                    <tr>
+                      <td class="border border-gray-300 px-4 py-2">${pago.id_pago}</td>
+                      <td class="border border-gray-300 px-4 py-2">${pago.ci_usuario}</td>
+                      <td class="border border-gray-300 px-4 py-2">$${pago.monto}</td>
+                      <td class="border border-gray-300 px-4 py-2">${pago.tipo}</td>
+                      <td class="border border-gray-300 px-4 py-2">
+                        <a href="../../api_cooperativa/${pago.comprobante}" target="_blank" class="text-blue-600 underline">Ver</a>
+                      </td>
+                      <td class="border border-gray-300 px-4 py-2">${pago.fecha}</td>
+                      <td class="border border-gray-300 px-4 py-2">
+                        <span class="font-medium">${pago.estado}</span>
+                        <div class="flex gap-2 mt-2">
+                          <button onclick="actualizarEstado(${pago.id_pago}, 'verificado')" class="px-2 py-1 bg-green-500 text-white rounded"> Verificar</button>
+                          <button onclick="actualizarEstado(${pago.id_pago}, 'rechazado')" class="px-2 py-1 bg-red-500 text-white rounded"> Rechazar</button>
+                        </div>
+                      </td>
+                    </tr>
+                  `;
+                });
+              } catch (err) {
+                console.error("Error al cargar pagos:", err);
+              }
+            }
+
+            async function actualizarEstado(id_pago, nuevoEstado) {
+              try {
+                const res = await fetch("http://localhost/Proyecto-DataHive-primeraEntrega/api_cooperativa/pagos/actualizar_estado.php", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                  body: `id_pago=${id_pago}&estado=${nuevoEstado}`
+                });
+
+                const data = await res.text();
+                alert(data);
+                cargarPagos(); // refresca la tabla
+              } catch (err) {
+                console.error("Error:", err);
+              }
+            }
+
+            // cargar los pagos al abrir la página
+            cargarPagos();
+            </script>
+
+
+
+
+                </div>
+            </div>
+
+           
+
+            
+            
+            
+            
+    </section>
+
+</body>
+</html>

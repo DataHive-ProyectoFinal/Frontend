@@ -5,7 +5,7 @@
 
       const datos = Object.fromEntries(new FormData(form));
 
-      fetch('http://localhost:8080/registro.php', {
+      fetch('http://localhost:8080/Proyecto-DataHive-primeraEntrega/registro.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

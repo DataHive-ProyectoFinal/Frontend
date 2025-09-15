@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    font-family: "Poppins", sans-serif;
+
+}
+.contenido{
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: 
+    auto 1fr auto;
+}
+:root{
+    --base-color: #e8f0ff;
+    --primary-color:#244696;
+    --primary-color-dark: #06358C;
+    --secondary-color: #51A81B;
+    --secondary-color-dark: #397e2d;
+    --text-dark:#093d26;
+    --text-light: #9ECA8B;
+    --text-light-secondary: #6578B6;
+    --text-dark-secondary:#011e53;
+    --extra-light: #EBECFA;
+}
+a{text-decoration: none; color: var(--text-dark-secondary);}
+ul{list-style: none;}
+h1{font-size: 2rem;}
+h2{font-size: 1.8rem;}
+h3{font-size: 1.5rem;}
+p{font-size: 1rem;}
+
+.card{
+    margin: 5rem 0;
+    border:0.1rem solid #ddd;
+    border-radius:0.7rem;
+    box-shadow:0 3rem 8rem rgba(0,0,0,.04);
+    padding: 3rem;
+    margin-left: 17rem;
+}
+
+.row{
+    display:flex;
+    gap:2rem;
+    align-items:center;
+}
+
+.calendar{
+    display:grid;
+    grid-template-columns:repeat(7,2rem);
+    gap:1.5rem;
+    justify-content:start;
+}
+
+.cell{
+    width:3rem;
+    height:3rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.cell.disabled{
+    opacity:.25;
+    cursor:not-allowed;
+}
+
+.cell.selected{
+    background:var(--primary-color);
+    color:#fff
+}
+
+.cell.today{
+    outline:2px solid var(--secondary-color)
+}
+
+.btn{
+    padding:1rem 3rem;
+    border-radius:1rem;
+    border:0;
+    background:var(--text-light-secondary); 
+    color:#fff;
+    cursor:pointer;
+    transition: .3s;
+}
+.btn:hover{
+    background:var(--primary-color-dark); 
+    color:#fff;
+    transition: .3s
+}
+
+.msg{
+    margin-top:12px;
+    padding:10px;
+    border-radius:6px}
+
+.msg.error{
+    background:#fee2e2;
+    color:#b91c1c
+}
+
+.msg.success{
+    background:#ecfdf5;
+    color:#065f46
+}
+
+.small{
+    font-size:0.9rem;
+    color:#555; 
+}
+
+#calendarHeader {
+    display: grid;
+    grid-template-columns: repeat(7, 3rem); /* igual ancho que las celdas del calendario */
+    gap: 1.5rem;
+    justify-content: start;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.form-content{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top: 2rem;
+}
+
+.hours-input ,.ci-input{
+    margin:3rem 0;
+}
+
+.btn{margin:2rem 0}
+
+.calendar-content{margin-top:3rem}
+
+.horas, .descripcion, .selectYear, .selectMes{
+    padding: 0.5rem;
+    border-radius:1rem;
+    border:0.1rem solid #ccc;
+}
