@@ -147,7 +147,7 @@
     if (!ci_usuario) return;
 
     try {
-        const res = await fetch("../../api_cooperativa/backoffice_jornada.php", {
+        const res = await fetch("../../../api_cooperativa/controlador/jornadas/backoffice_jornadaController.php", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
             body: `ci_usuario=${encodeURIComponent(ci_usuario)}`
@@ -232,7 +232,7 @@
                 btn.addEventListener("click", async () => {
                     const id = btn.dataset.id;
                     try {
-                        const resVer = await fetch(`../../api_cooperativa/jornadas/backoffice_jornada.php?verificar_id=${id}`, { method: "GET" });
+                        const resVer = await fetch(`../../../api_cooperativa/controlador/jornadas/backoffice_jornadaController.php?verificar_id=${id}`, { method: "GET" });
                         const dataVer = await resVer.json();
                         alert(dataVer.messages[0].text); // mensaje simple
                         document.getElementById("buscarForm").dispatchEvent(new Event("submit")); // refresca tabla
@@ -254,7 +254,8 @@ function getWeekNumber(d) {
     d.setUTCDate(d.getUTCDate() + 4 - dayNum);
     const yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
     return Math.ceil((((d - yearStart) / 86400000) + 1)/7);
-};
+}
+
 </script>
 </body>
 </html>
