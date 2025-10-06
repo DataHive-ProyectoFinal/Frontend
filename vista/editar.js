@@ -35,3 +35,4 @@ document.getElementById('ocupacionSelect').addEventListener('change', function()
 document.getElementById('ingresoSelect').addEventListener('change', function() {
     document.getElementById('ingresoInput').value = this.value;
 });
+

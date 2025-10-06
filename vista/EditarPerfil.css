@@ -138,6 +138,7 @@ label {
   color: white;
 }
 
+
 .btn-guardar:hover {
   background-color: var(--secondary-color-dark);
 }
