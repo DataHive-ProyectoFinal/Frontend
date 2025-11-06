@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Historial de Pagos</title>
+</head>
+<body>
+  <h1>Historial de Pagos</h1>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Monto</th>
+        <th>Tipo</th>
+        <th>Comprobante</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody id="tablaPagos"></tbody>
+  </table>
+
+  <button onclick="window.location.href='subir_pago.html'">
+    Volver a Subir Pago
+  </button>
+
+  <script>
+    async function cargarHistorial() {
+      try {
+        const res = await fetch("http://localhost/Proyecto-DataHive-EntregaFinal/api_cooperativa/vistas/pagos/listar_pagos.php");
+        const data = await res.json();
+
+        if (data.success) {
+          const tbody = document.getElementById("tablaPagos");
+          tbody.innerHTML = "";
+          data.pagos.forEach(pago => {
+            const fila = `
+              <tr>
+                <td>${pago.fecha || ''}</td>
+                <td>${pago.monto}</td>
+                <td>${pago.tipo}</td>
+                <td><a href="${pago.comprobante}" target="_blank">Ver</a></td>
+                <td>${pago.estado || 'Pendiente'}</td>
+              </tr>`;
+            tbody.innerHTML += fila;
+          });
+        } else {
+          alert("No se pudieron cargar los pagos");
+        }
+      } catch (err) {
+        alert("Error al cargar historial");
+      }
+    }
+
+    cargarHistorial();
+  </script>
+</body>
+</html>

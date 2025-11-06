@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Subir Pago</title>
+</head>
+<body>
+  <h1>Subir Pago</h1>
+  <form id="formPago" enctype="multipart/form-data">
+    <label for="monto">Monto:</label>
+    <input type="number" name="monto" id="monto" step="0.01" required><br><br>
+
+    <label for="tipo">Tipo:</label>
+    <select name="tipo" id="tipo" required>
+      <option value="cuota">Cuota</option>
+      <option value="otros">Otros</option>
+    </select><br><br>
+
+    <label for="comprobante">Comprobante:</label>
+    <input type="file" name="comprobante" id="comprobante" accept="image/*,application/pdf" required><br><br>
+
+    <button type="submit">Subir Pago</button>
+  </form>
+
+  <button onclick="window.location.href='historial_pagos.html'">
+    Ver Historial
+  </button>
+
+  <script>
+    document.getElementById("formPago").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+
+      try {
+        const res = await fetch("http://localhost/Proyecto-DataHive-EntregaFinal/api_cooperativa/vistas/pagos/subir_pago.php", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          alert("Pago subido correctamente");
+          e.target.reset();
+        } else {
+          alert("Error al subir el pago: " + (data.msg || "Intenta de nuevo"));
+        }
+      } catch (err) {
+        alert("Error en el servidor");
+      }
+    });
+  </script>
+</body>
+</html>

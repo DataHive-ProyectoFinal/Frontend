@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi Perfil</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gray-100 flex items-center justify-center">
+
+  <div class="bg-white shadow-xl rounded-xl p-8 w-full max-w-md border-t-8 border-blue-700">
+    <h2 class="text-2xl font-bold text-blue-700 mb-4 text-center">Mi Perfil</h2>
+    <div id="perfil" class="space-y-3 text-gray-700"></div>
+
+    <div class="text-center mt-6">
+      <a href="home-frontend-socios.html" class="text-blue-700 hover:underline">Volver al inicio</a>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const ci = localStorage.getItem("ci_usuario");
+      if (!ci) {
+        alert("No se encontró usuario en sesión");
+        window.location.href = "../../login.html";
+        return;
+      }
+
+      const resp = await fetch(`../../../api_usuarios/controlador/obtenerPerfil.php?ci=${ci}`);
+      const data = await resp.json();
+
+      if (data.success) {
+        const p = data.perfil;
+        document.getElementById("perfil").innerHTML = `
+          <p><strong>Nombre:</strong> ${p.nombre}</p>
+          <p><strong>Email:</strong> ${p.email}</p>
+          <p><strong>Teléfono:</strong> ${p.telefono}</p>
+          <p><strong>Dirección:</strong> ${p.direccion || "-"}</p>
+          <p><strong>Fecha de nacimiento:</strong> ${p.fecha_nacimiento || "-"}</p>
+        `;
+      } else {
+        document.getElementById("perfil").innerHTML = `<p class="text-red-600">${data.msg}</p>`;
+      }
+    });
+  </script>
+</body>
+</html>

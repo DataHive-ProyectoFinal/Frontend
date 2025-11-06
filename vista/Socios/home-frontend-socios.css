@@ -16,6 +16,7 @@ body{
     grid-template-rows: 
     auto 1fr auto;
 }
+/*cooperativa vista linda*/
 :root{
     --base-color: #e8f0ff;
     --primary-color:#244696;
@@ -54,7 +55,8 @@ p{font-size: 1rem;}
     
 
 
-   }.profileBox{
+   }
+.profileBox{
     
     height: fit-content;
     margin: 1rem auto;
@@ -65,10 +67,11 @@ p{font-size: 1rem;}
     align-items: center;
     flex-direction:column;
     
-    color: var(--text-light);
+    color: var(--primary-color);
 }
 
-.card-container{
+/*.card-container{
+
     display: grid;
     align-items: center;
     justify-content: center;
@@ -90,4 +93,7 @@ p{font-size: 1rem;}
 .card3{
     border-radius: 30px;
     grid-area: card3;
-}
+}*/
+
+
+
