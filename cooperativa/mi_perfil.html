@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - Cooperativa Vista Linda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'coop-green': '#679436',
+                        'coop-blue': '#05668d'
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-montserrat">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gradient-to-b from-coop-green to-green-700 text-white flex-shrink-0">
+            <div class="p-6">
+                <div class="flex items-center space-x-3 mb-8">
+                    <img src="../multimedia/logo_cooperativa.svg" alt="Vista Linda" class="w-10 h-10">
+                    <span class="text-xl font-bold">Vista Linda</span>
+                </div>
+                
+                <nav class="space-y-2">
+                    <a href="dashboard.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                        <span class="font-semibold">Mi Dashboard</span>
+                    </a>
+                    
+                    <a href="mis_pagos.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
+                            <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-semibold">Mis Pagos</span>
+                    </a>
+                    
+                    <a href="mis_jornadas.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-semibold">Mis Jornadas</span>
+                    </a>
+                    
+                    <a href="mi_perfil.html" class="flex items-center space-x-3 bg-white bg-opacity-20 px-4 py-3 rounded-lg transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-bold">Mi Perfil</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-coop-blue text-white shadow-lg">
+                <div class="px-6 py-4 flex justify-between items-center">
+                    <h1 class="text-2xl font-bold">Cooperativa Vista Linda</h1>
+                    <button onclick="logout()" class="flex items-center space-x-2 bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-bold">Cerrar Sesión</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <main class="flex-1 overflow-y-auto p-6">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-coop-blue mb-6">Mi Perfil</h2>
+
+                    <!-- Información Personal -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-6" id="vista-perfil">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-bold text-gray-900">Información Personal</h3>
+                            <button onclick="habilitarEdicion()" class="bg-coop-blue hover:bg-teal-700 text-white font-bold px-6 py-2 rounded-lg transition">
+                                Editar Perfil
+                            </button>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-sm text-gray-600 font-semibold mb-1">Cédula de Identidad</p>
+                                <p id="vista-ci" class="font-bold text-gray-900 bg-gray-50 px-4 py-3 rounded-lg">Cargando...</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600 font-semibold mb-1">Nombre Completo</p>
+                                <p id="vista-nombre" class="font-bold text-gray-900 bg-gray-50 px-4 py-3 rounded-lg">Cargando...</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600 font-semibold mb-1">Email</p>
+                                <p id="vista-email" class="font-bold text-gray-900 bg-gray-50 px-4 py-3 rounded-lg">Cargando...</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600 font-semibold mb-1">Teléfono</p>
+                                <p id="vista-telefono" class="font-bold text-gray-900 bg-gray-50 px-4 py-3 rounded-lg">Cargando...</p>
+                            </div>
+                            <div class="md:col-span-2">
+                                <p class="text-sm text-gray-600 font-semibold mb-1">Dirección</p>
+                                <p id="vista-direccion" class="font-bold text-gray-900 bg-gray-50 px-4 py-3 rounded-lg">Cargando...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de Edición (oculto inicialmente) -->
+                    <form id="form-edicion" class="hidden bg-white rounded-xl shadow-lg p-6 mb-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-6">Editar Información Personal</h3>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Cédula de Identidad</label>
+                                <input type="text" id="edit-ci" disabled
+                                    class="w-full px-4 py-3 bg-gray-100 border-2 border-gray-300 rounded-lg font-bold">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Nombre Completo</label>
+                                <input type="text" name="nombre_completo" id="edit-nombre" disabled
+                                class="w-full px-4 py-3 bg-gray-100 border-2 border-gray-300 rounded-lg font-bold">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Email</label>
+                                <input type="email" name="gmail" id="edit-email" required
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Teléfono</label>
+                                <input type="tel" name="telefono_celular" id="edit-telefono" maxlength="9"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')" required
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Dirección</label>
+                                <input type="text" name="direccion" id="edit-direccion" required
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue">
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 mt-6">
+                            <button type="submit" class="flex-1 bg-gradient-to-r from-coop-green to-green-700 hover:from-green-700 hover:to-coop-green text-white font-bold py-3 rounded-lg transition">
+                                Guardar Cambios
+                            </button>
+                            <button type="button" onclick="cancelarEdicion()" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-lg transition">
+                                Cancelar
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Seguridad -->
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Seguridad</h3>
+                        <button onclick="abrirModalCambiarPassword()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-lg transition">
+                            Cambiar Contraseña
+                        </button>
+                    </div>
+
+                    <!-- Información de Cuenta -->
+                    <div class="bg-white rounded-xl shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Información de Cuenta</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-sm text-gray-600 font-semibold mb-1">Fecha de Registro</p>
+                                <p id="fecha-registro" class="font-bold text-gray-900">Cargando...</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600 font-semibold mb-1">Estado de Cuenta</p>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span class="font-bold text-green-600">Activo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal Cambiar Contraseña -->
+    <div id="modal-cambiar-password" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full">
+            <div class="flex justify-between items-center p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-red-600">Cambiar Contraseña</h3>
+                <button onclick="cerrarModalPassword()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+            </div>
+
+            <form id="form-cambiar-password" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Contraseña Actual *</label>
+                    <input type="password" name="contrasena_actual" required
+                        placeholder="Ingresa tu contraseña actual"
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Nueva Contraseña *</label>
+                    <input type="password" name="nueva_contrasena" required minlength="6"
+                        placeholder="Mínimo 6 caracteres"
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                    <p class="text-xs text-gray-500 mt-1 font-semibold" id="password-warning">Completa este campo</p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Confirmar Nueva Contraseña *</label>
+                    <input type="password" name="confirmar_contrasena" required
+                        placeholder="Repite la nueva contraseña"
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                </div>
+
+                <div class="flex gap-3 pt-4">
+                    <button type="submit" class="flex-1 bg-gradient-to-r from-red-500 to-red-700 hover:from-red-700 hover:to-red-500 text-white font-bold py-3 rounded-lg transition">
+                        Cambiar Contraseña
+                    </button>
+                    <button type="button" onclick="cerrarModalPassword()" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-lg transition">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let perfilData = null;
+
+        // Verificar sesión y cargar perfil
+        async function verificarSesion() {
+            try {
+                const response = await fetch('../../api_usuarios/verificar_sesion.php', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+
+                if (!data.success || data.tipo_usuario !== 'socio') {
+                    window.location.href = '../landing/login.html';
+                    return;
+                }
+
+                if (data.perfil_completo == 0) {
+                    window.location.href = 'pago_inicial.html';
+                    return;
+                }
+
+                cargarPerfil();
+            } catch (error) {
+                console.error('Error:', error);
+                window.location.href = '../landing/login.html';
+            }
+        }
+
+        // Cargar perfil
+        async function cargarPerfil() {
+            try {
+                const response = await fetch('../../api_cooperativa/mi_perfil.php', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    perfilData = data.perfil;
+                    mostrarPerfil(perfilData);
+                }
+            } catch (error) {
+                console.error('Error al cargar perfil:', error);
+            }
+        }
+
+        // Mostrar perfil
+        function mostrarPerfil(perfil) {
+            document.getElementById('vista-ci').textContent = perfil.ci;
+            document.getElementById('vista-nombre').textContent = perfil.nombre_completo;
+            document.getElementById('vista-email').textContent = perfil.gmail;
+            document.getElementById('vista-telefono').textContent = perfil.telefono_celular;
+            document.getElementById('vista-direccion').textContent = perfil.direccion;
+            document.getElementById('fecha-registro').textContent = new Date(perfil.fecha_registro).toLocaleDateString('es-UY');
+        }
+
+        // Habilitar edición
+        function habilitarEdicion() {
+            document.getElementById('vista-perfil').classList.add('hidden');
+            document.getElementById('form-edicion').classList.remove('hidden');
+
+            // Prellenar formulario
+            document.getElementById('edit-ci').value = perfilData.ci;
+            document.getElementById('edit-nombre').value = perfilData.nombre_completo;
+            document.getElementById('edit-email').value = perfilData.gmail;
+            document.getElementById('edit-telefono').value = perfilData.telefono_celular;
+            document.getElementById('edit-direccion').value = perfilData.direccion;
+        }
+
+        // Cancelar edición
+        function cancelarEdicion() {
+            document.getElementById('form-edicion').classList.add('hidden');
+            document.getElementById('vista-perfil').classList.remove('hidden');
+        }
+
+        // Guardar cambios
+        document.getElementById('form-edicion').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+
+            try {
+                const response = await fetch('../../api_cooperativa/actualizar_perfil.php', {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'include'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert('¡Perfil actualizado exitosamente!');
+                    cancelarEdicion();
+                    cargarPerfil();
+                } else {
+                    alert(data.message || 'Error al actualizar el perfil');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error de conexión');
+            }
+        });
+
+        // Modal cambiar contraseña
+        function abrirModalCambiarPassword() {
+            document.getElementById('modal-cambiar-password').classList.remove('hidden');
+        }
+
+        function cerrarModalPassword() {
+            document.getElementById('modal-cambiar-password').classList.add('hidden');
+            document.getElementById('form-cambiar-password').reset();
+            document.getElementById('password-warning').textContent = 'Completa este campo';
+        }
+
+        // Validación de contraseñas
+        document.querySelector('input[name="nueva_contrasena"]').addEventListener('input', function() {
+            const warning = document.getElementById('password-warning');
+            if (this.value.length < 6) {
+                warning.textContent = 'La contraseña debe tener al menos 6 caracteres';
+                warning.classList.add('text-red-500');
+            } else {
+                warning.textContent = 'Contraseña válida';
+                warning.classList.remove('text-red-500');
+                warning.classList.add('text-green-500');
+            }
+        });
+
+        // Cambiar contraseña
+        document.getElementById('form-cambiar-password').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+
+            const nueva = formData.get('nueva_contrasena');
+            const confirmar = formData.get('confirmar_contrasena');
+
+            if (nueva !== confirmar) {
+                alert('Las contraseñas no coinciden');
+                return;
+            }
+
+            if (nueva.length < 6) {
+                alert('La contraseña debe tener al menos 6 caracteres');
+                return;
+            }
+
+            try {
+                const response = await fetch('../../api_cooperativa/cambiar_contrasena.php', {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'include'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert('¡Contraseña cambiada exitosamente!');
+                    cerrarModalPassword();
+                } else {
+                    alert(data.message || 'Error al cambiar la contraseña');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error de conexión');
+            }
+        });
+
+        // Logout
+        async function logout() {
+            try {
+                await fetch('../../api_usuarios/logout.php', { credentials: 'include' });
+                window.location.href = '../landing/login.html';
+            } catch (error) {
+                window.location.href = '../landing/login.html';
+            }
+        }
+
+        // Inicializar
+        verificarSesion();
+    </script>
+</body>
+</html>

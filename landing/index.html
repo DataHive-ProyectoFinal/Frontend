@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataHive - Gestión de Cooperativas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'datahive-cyan': '#1f9a95',
+                        'datahive-yellow': '#f4bd45',
+                        'coop-green': '#679436',
+                        'coop-blue': '#05668d'
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-montserrat">
+    <!-- Header -->
+    <header class="bg-white shadow-lg fixed w-full top-0 z-50 border-b-4 border-datahive-cyan">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo + Nombre -->
+                <div class="flex items-center space-x-3">
+                    <img src="../multimedia/DataHiveLogo-sinLetras.svg" alt="DataHive Logo" class="w-16 h-16">
+                    <span class="text-3xl font-bold text-gray-900">
+                        DataHive
+                    </span>
+                </div>
+                
+                <!-- Navegación Desktop -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-datahive-cyan font-semibold transition">Home</a>
+                    <a href="#nosotros" class="text-gray-700 hover:text-datahive-cyan font-semibold transition">Sobre Nosotros</a>
+                    <a href="#beneficios" class="text-gray-700 hover:text-datahive-cyan font-semibold transition">Beneficios</a>
+                    <a href="#equipo" class="text-gray-700 hover:text-datahive-cyan font-semibold transition">Equipo</a>
+                </nav>
+                
+                <!-- CTA -->
+                <a href="#cooperativa" class="hidden md:block px-6 py-2.5 bg-gradient-to-r from-datahive-cyan to-teal-600 hover:from-teal-600 hover:to-datahive-cyan text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    Ver Cooperativas
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 min-h-screen flex items-center bg-gradient-to-br from-teal-50 via-white to-yellow-50">
+        <div class="container mx-auto px-4 py-16">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Texto -->
+                <div class="space-y-6">
+                    <div class="inline-block">
+                        <span class="px-4 py-2 bg-yellow-100 text-datahive-cyan font-bold rounded-full text-sm flex items-center gap-2 w-fit">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+                            </svg>
+                            Soluciones Digitales Innovadoras
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight">
+                        <span class="text-gray-900">Gestiona tu</span><br>
+                        <span class="bg-gradient-to-r from-datahive-cyan via-teal-500 to-cyan-600 bg-clip-text text-transparent">Cooperativa</span><br>
+                        <span class="text-datahive-yellow">con facilidad</span>
+                    </h1>
+                    
+                    <p class="text-xl text-gray-600 leading-relaxed font-semibold">
+                        Digitaliza los procesos administrativos y financieros de tu cooperativa de vivienda con una herramienta ágil, moderna y segura.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#nosotros" class="px-8 py-4 bg-gradient-to-r from-datahive-cyan to-teal-600 hover:from-teal-600 hover:to-datahive-cyan text-white font-bold rounded-xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                            Conocer más
+                        </a>
+                        <a href="#cooperativa" class="px-8 py-4 bg-white hover:bg-gray-50 text-datahive-cyan font-bold rounded-xl border-2 border-datahive-cyan shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                            Ver Demo
+                        </a>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6 pt-8">
+                        <div>
+                            <div class="text-3xl font-bold text-datahive-cyan">100%</div>
+                            <div class="text-sm text-gray-600 font-semibold">Digital</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-datahive-cyan">24/7</div>
+                            <div class="text-sm text-gray-600 font-semibold">Disponible</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-datahive-cyan">+10</div>
+                            <div class="text-sm text-gray-600 font-semibold">Funciones</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ilustración SVG Moderna -->
+                <div class="flex justify-center">
+                    <svg viewBox="0 0 400 400" class="w-full max-w-md drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Fondo circular -->
+                        <circle cx="200" cy="200" r="180" fill="#1f9a95" opacity="0.1"/>
+                        <circle cx="200" cy="200" r="140" fill="#f4bd45" opacity="0.15"/>
+                        
+                        <!-- Edificio/Cooperativa -->
+                        <rect x="120" y="120" width="160" height="200" fill="#1f9a95" rx="8"/>
+                        <rect x="130" y="140" width="50" height="40" fill="white" opacity="0.3" rx="4"/>
+                        <rect x="210" y="140" width="50" height="40" fill="white" opacity="0.3" rx="4"/>
+                        <rect x="130" y="200" width="50" height="40" fill="white" opacity="0.3" rx="4"/>
+                        <rect x="210" y="200" width="50" height="40" fill="white" opacity="0.3" rx="4"/>
+                        <rect x="130" y="260" width="50" height="40" fill="white" opacity="0.3" rx="4"/>
+                        <rect x="210" y="260" width="50" height="40" fill="white" opacity="0.3" rx="4"/>
+                        
+                        <!-- Puerta -->
+                        <rect x="170" y="270" width="60" height="50" fill="#f4bd45" rx="4"/>
+                        
+                        <!-- Personas (círculos + cuerpos simples) -->
+                        <circle cx="80" cy="280" r="20" fill="#f4bd45"/>
+                        <rect x="70" y="300" width="20" height="30" fill="#1f9a95" rx="10"/>
+                        
+                        <circle cx="320" cy="290" r="18" fill="#1f9a95"/>
+                        <rect x="312" y="308" width="16" height="25" fill="#f4bd45" rx="8"/>
+                        
+                        <!-- Checkmark/Success -->
+                        <circle cx="320" cy="120" r="35" fill="#10b981" opacity="0.9"/>
+                        <path d="M 305 120 L 315 130 L 335 110" stroke="white" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        
+                        <!-- Documento flotante -->
+                        <rect x="50" y="100" width="60" height="80" fill="white" rx="4" opacity="0.9"/>
+                        <line x1="60" y1="120" x2="100" y2="120" stroke="#1f9a95" stroke-width="3"/>
+                        <line x1="60" y1="135" x2="100" y2="135" stroke="#1f9a95" stroke-width="3"/>
+                        <line x1="60" y1="150" x2="90" y2="150" stroke="#f4bd45" stroke-width="3"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section id="nosotros" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Sobre <span class="text-datahive-cyan">Nosotros</span>
+                </h2>
+                <p class="text-xl text-gray-600 font-semibold">Transformando la gestión de cooperativas</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Misión -->
+                <div class="group bg-gradient-to-br from-datahive-cyan to-teal-700 p-8 rounded-2xl text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <svg class="w-16 h-16 mb-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-4">Misión</h3>
+                    <p class="text-teal-50 font-semibold">
+                        Ofrecemos soluciones informáticas de calidad que automatizan procesos y optimizan la gestión de servicios. Garantizamos seguridad, eficiencia y acompañamiento constante para potenciar el crecimiento.
+                    </p>
+                </div>
+
+                <!-- Visión -->
+                <div class="group bg-gradient-to-br from-datahive-yellow to-yellow-500 p-8 rounded-2xl text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <svg class="w-16 h-16 mb-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                        <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-4">Visión</h3>
+                    <p class="text-yellow-50 font-semibold">
+                        Ser referentes en transformación digital, brindando soluciones innovadoras que impulsen el éxito de nuestros clientes en toda Latinoamérica.
+                    </p>
+                </div>
+
+                <!-- Valores -->
+                <div class="group bg-gradient-to-br from-teal-600 to-cyan-700 p-8 rounded-2xl text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <svg class="w-16 h-16 mb-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                    <h3 class="text-2xl font-bold mb-4">Valores</h3>
+                    <p class="text-cyan-50 font-semibold">
+                        Innovación, compromiso, transparencia y excelencia en cada proyecto que realizamos para nuestros clientes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ¿Por qué elegirnos? -->
+    <section id="beneficios" class="py-20 bg-gradient-to-br from-teal-50 to-cyan-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    ¿Por qué <span class="text-datahive-yellow">elegirnos?</span>
+                </h2>
+                <p class="text-xl text-gray-600 font-semibold">Beneficios que marcan la diferencia</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-datahive-cyan">
+                    <div class="w-16 h-16 bg-gradient-to-br from-datahive-cyan to-teal-600 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Automatización Total</h3>
+                    <p class="text-gray-600 font-semibold">Ahorra tiempo automatizando tareas repetitivas y reduce errores en la gestión diaria.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-datahive-yellow">
+                    <div class="w-16 h-16 bg-gradient-to-br from-datahive-yellow to-yellow-500 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"/>
+                            <path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Soporte Local</h3>
+                    <p class="text-gray-600 font-semibold">Equipo uruguayo disponible para asistirte de forma rápida y confiable.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-teal-600">
+                    <div class="w-16 h-16 bg-gradient-to-br from-teal-600 to-cyan-700 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Seguridad & Confianza</h3>
+                    <p class="text-gray-600 font-semibold">Datos protegidos con los más altos estándares de seguridad informática.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-cyan-600">
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-600 to-teal-700 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Adaptabilidad</h3>
+                    <p class="text-gray-600 font-semibold">Soluciones flexibles para diferentes tipos de cooperativas y necesidades.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-yellow-500">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-datahive-yellow rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/>
+                            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Transparencia</h3>
+                    <p class="text-gray-600 font-semibold">Trazabilidad completa para consultar y validar información fácilmente.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border-t-4 border-datahive-cyan">
+                    <div class="w-16 h-16 bg-gradient-to-br from-datahive-cyan to-teal-500 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Interfaz Amigable</h3>
+                    <p class="text-gray-600 font-semibold">Diseño intuitivo y fácil de usar para todos los niveles de usuarios.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo -->
+    <section id="equipo" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Nuestro <span class="text-datahive-cyan">Equipo</span>
+                </h2>
+                <p class="text-xl text-gray-600 font-semibold">Desarrolladoras comprometidas con la excelencia</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Valentina -->
+                <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-8 rounded-2xl text-center shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-32 h-32 bg-gradient-to-br from-datahive-cyan to-teal-600 rounded-full mx-auto mb-6 flex items-center justify-center shadow-xl">
+                        
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                            
+                        </svg>
+                        
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Valentina Gahn</h3>
+                    <p class="text-datahive-cyan font-bold mb-3">Desarrolladora Full Stack</p>
+                    
+                </div>
+
+                <!-- Sofia -->
+                <div class="bg-gradient-to-br from-yellow-50 to-amber-50 p-8 rounded-2xl text-center shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-32 h-32 bg-gradient-to-br from-datahive-yellow to-yellow-500 rounded-full mx-auto mb-6 flex items-center justify-center shadow-xl">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Sofia Parada</h3>
+                    <p class="text-datahive-yellow font-bold mb-3">Desarrolladora Full Stack</p>
+                </div>
+
+                <!-- Luciana -->
+                <div class="bg-gradient-to-br from-cyan-50 to-teal-50 p-8 rounded-2xl text-center shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="w-32 h-32 bg-gradient-to-br from-cyan-600 to-teal-700 rounded-full mx-auto mb-6 flex items-center justify-center shadow-xl">
+                        <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                        </svg>
+                        <img src="" alt="">
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Luciana Porto</h3>
+                    <p class="text-cyan-600 font-bold mb-3">Desarrolladora Full Stack</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cooperativa" class="py-20 bg-gradient-to-br from-coop-blue via-teal-700 to-coop-green">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center text-white">
+                <div class="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full">
+                    <img src="../multimedia/logo-cooperativa.svg" alt="Vista Linda Logo" class="w-8 h-8">
+                    <span class="text-sm font-bold">Cooperativa de Vivienda</span>
+                </div>
+                
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                    Cooperativa Vista Linda
+                </h2>
+                
+                <p class="text-xl md:text-2xl mb-12 text-teal-50 leading-relaxed font-semibold">
+                    Trabajamos juntos para construir un futuro mejor para nuestros socios.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="registro.html" class="px-10 py-4 bg-white text-coop-blue hover:bg-gray-100 rounded-xl font-bold text-lg shadow-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        ¿Querés ser socio? ¡Regístrate aquí!
+                    </a>
+                    <a href="login.html" class="px-10 py-4 bg-coop-green hover:bg-green-700 text-white rounded-xl font-bold text-lg shadow-2xl hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                        Ya soy socio - Ingresar
+                    </a>
+                </div>
+
+                <!-- Características rápidas -->
+                <div class="grid md:grid-cols-3 gap-6 mt-16">
+                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                        <svg class="w-12 h-12 mx-auto mb-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
+                            <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <h3 class="font-bold mb-2">Gestión de Pagos</h3>
+                        <p class="text-sm text-teal-100 font-semibold">Control total de tus cuotas y pagos</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                        <svg class="w-12 h-12 mx-auto mb-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <h3 class="font-bold mb-2">Registro de Jornadas</h3>
+                        <p class="text-sm text-teal-100 font-semibold">Registra tus horas trabajadas fácilmente</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+                        <svg class="w-12 h-12 mx-auto mb-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                        </svg>
+                        <h3 class="font-bold mb-2">Perfil Personal</h3>
+                        <p class="text-sm text-teal-100 font-semibold">Gestiona tu información en un solo lugar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="../multimedia/DataHiveLogo-sinLetras.svg" alt="DataHive" class="w-12 h-12">
+                        <span class="text-xl font-bold">DataHive</span>
+                    </div>
+                    <p class="text-gray-400 text-sm font-semibold">
+                        Soluciones tecnológicas innovadoras.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-4 text-datahive-cyan">Sobre</h3>
+                    <ul class="space-y-2 text-sm text-gray-400 font-semibold">
+                        <li><a href="#nosotros" class="hover:text-white transition">Misión y Visión</a></li>
+                        <li><a href="#equipo" class="hover:text-white transition">Equipo</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-4 text-datahive-yellow">Legal</h3>
+                    <ul class="space-y-2 text-sm text-gray-400 font-semibold">
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Términos de Uso</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold mb-4 text-datahive-cyan">Contacto</h3>
+                    <p class="text-sm text-gray-400 font-semibold">
+                        WTC, Pocitos, Montevideo<br>
+                        datahive2025@gmail.com
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-400 font-semibold">
+                <p>&copy; 2025 DataHive. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

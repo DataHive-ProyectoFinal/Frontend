@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Cooperativa Vista Linda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'coop-green': '#679436',
+                        'coop-blue': '#05668d'
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-montserrat">
+    <!-- Header -->
+    <header class="bg-coop-blue text-white py-4 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <img src="../multimedia/logo-cooperativa.svg" alt="Vista Linda" class="w-10 h-10">
+                <span class="text-2xl font-bold">Cooperativa Vista Linda</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="hover:text-coop-green transition font-semibold hidden md:block">Volver</a>
+                <a href="login.html" class="bg-coop-green hover:bg-green-700 px-6 py-2 rounded-lg transition font-bold">
+                    Ir al Login
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Formulario -->
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <!-- Header del formulario -->
+            <div class="bg-gradient-to-r from-coop-blue to-teal-700 p-8 text-white text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"/>
+                    </svg>
+                </div>
+                <h1 class="text-4xl font-bold mb-2">Solicitud de Ingreso</h1>
+                <p class="text-xl text-teal-100 font-semibold">Cooperativa Vista Linda</p>
+            </div>
+
+            <!-- Mensajes -->
+            <div class="p-8">
+                <div id="error-message" class="hidden bg-red-50 border-l-4 border-red-500 p-4 mb-6 rounded">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-red-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span id="error-text" class="text-red-700 font-semibold"></span>
+                    </div>
+                </div>
+
+                <div id="success-message" class="hidden bg-green-50 border-l-4 border-green-500 p-4 mb-6 rounded">
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span id="success-text" class="text-green-700 font-semibold"></span>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <form id="registro-form" class="space-y-8">
+                    <!-- Datos Personales -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <div class="flex items-center mb-6">
+                            <svg class="w-8 h-8 text-coop-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                            </svg>
+                            <h2 class="text-2xl font-bold text-gray-800">Datos Personales</h2>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Nombre y apellidos *</label>
+                                <input type="text" name="nombre_completo" required 
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Cédula de identidad *</label>
+                                <input type="text" name="ci" required 
+                                    pattern="[0-9]{7,8}" 
+                                    maxlength="8"
+                                    placeholder="1234567"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition">
+                                <p class="text-xs text-gray-500 mt-1 font-semibold">Solo números, 7-8 dígitos</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Fecha de nacimiento *</label>
+                                <input type="date" name="fecha_nacimiento" required
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Género *</label>
+                                <select name="genero" required
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition">
+                                    <option value="">Seleccionar</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                    <option value="Otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información de Contacto -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <div class="flex items-center mb-6">
+                            <svg class="w-8 h-8 text-coop-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                            </svg>
+                            <h2 class="text-2xl font-bold text-gray-800">Información de Contacto</h2>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Correo electrónico *</label>
+                                <input type="email" name="gmail" required
+                                    placeholder="ejemplo@gmail.com"
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Teléfono celular *</label>
+                                <input type="tel" name="telefono_celular" required 
+                                    pattern="[0-9]{8,9}"
+                                    maxlength="9"
+                                    placeholder="094123456"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition">
+                                <p class="text-xs text-gray-500 mt-1 font-semibold">Máximo 9 dígitos</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Teléfono fijo</label>
+                                <input type="tel" name="telefono_fijo"
+                                    pattern="[0-9]{8}"
+                                    maxlength="8"
+                                    placeholder="26001234"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition">
+                                <p class="text-xs text-gray-500 mt-1 font-semibold">Máximo 8 dígitos (opcional)</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Dirección actual *</label>
+                                <input type="text" name="direccion" required 
+                                    placeholder="Calle, número, barrio"
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información Familiar -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <div class="flex items-center mb-6">
+                            <svg class="w-8 h-8 text-coop-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                            </svg>
+                            <h2 class="text-2xl font-bold text-gray-800">Información Familiar</h2>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Cantidad de personas en el hogar *</label>
+                                <input type="number" name="cantidad_familia" min="1" required
+                                    placeholder="1"
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition">
+                                <p class="text-xs text-gray-500 mt-1 font-semibold">Mínimo 1 persona</p>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">¿Personas con discapacidad a cargo?</label>
+                                <select name="discapacidad_cargo"
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition">
+                                    <option value="">Seleccionar</option>
+                                    <option value="1">Sí</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Información Socioeconómica -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <div class="flex items-center mb-6">
+                            <svg class="w-8 h-8 text-coop-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                            <h2 class="text-2xl font-bold text-gray-800">Información Socioeconómica</h2>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Ocupación actual *</label>
+                                <select name="ocupacion" required
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition">
+                                    <option value="">Seleccionar</option>
+                                    <option value="Empleado">Empleado</option>
+                                    <option value="Independiente">Independiente</option>
+                                    <option value="Desempleado">Desempleado</option>
+                                    <option value="Jubilado">Jubilado</option>
+                                    <option value="Estudiante">Estudiante</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Ingreso mensual del hogar *</label>
+                                <select name="ingreso" required
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition">
+                                    <option value="">Seleccionar</option>
+                                    <option value="Menos de $20000">Menos de $20000</option>
+                                    <option value="$20000 - $40000">$20000 - $40000</option>
+                                    <option value="$40000 - $60000">$40000 - $60000</option>
+                                    <option value="Más de $60000">Más de $60000</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Motivo de Interés -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <div class="flex items-center mb-6">
+                            <svg class="w-8 h-8 text-coop-blue mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+                            </svg>
+                            <h2 class="text-2xl font-bold text-gray-800">Motivo de Interés</h2>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">¿Por qué querés ser parte de nuestra cooperativa? *</label>
+                            <textarea name="motivo_interes" required rows="5" 
+                                placeholder="Cuéntanos tu motivación para ingresar a la cooperativa..."
+                                class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue transition resize-none"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Autorización -->
+                    <div class="flex items-start p-6 bg-blue-50 rounded-lg">
+                        <input type="checkbox" name="autorizacion_datos" id="autorizacion" required
+                            class="mt-1 h-5 w-5 text-coop-blue border-gray-300 rounded focus:ring-coop-blue">
+                        <label for="autorizacion" class="ml-3 text-sm text-gray-700 font-semibold">
+                            Autorizo el uso de mis datos personales de acuerdo a la Ley de Protección de Datos Personales (Ley N° 18.331). 
+                            Esta información será utilizada exclusivamente para evaluar mi solicitud de ingreso a la cooperativa. *
+                        </label>
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="flex flex-col md:flex-row gap-4 pt-4">
+                        <button type="submit" 
+                            class="flex-1 bg-gradient-to-r from-coop-blue to-teal-700 hover:from-teal-700 hover:to-coop-blue text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            Enviar Solicitud
+                        </button>
+                        <a href="login.html" 
+                            class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-4 px-8 rounded-xl transition-all duration-300 text-center flex items-center justify-center">
+                            <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M9.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L7.414 9H15a1 1 0 110 2H7.414l2.293 2.293a1 1 0 010 1.414z" clip-rule="evenodd"/>
+                            </svg>
+                            Cancelar
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-coop-blue text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <img src="../multimedia/logo_cooperativa.svg" alt="Vista Linda" class="w-8 h-8 mr-2">
+                <span class="font-bold text-lg">Cooperativa Vista Linda</span>
+            </div>
+            <p class="text-teal-100 font-semibold">&copy; 2025 Cooperativa Vista Linda. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('registro-form');
+        const errorMessage = document.getElementById('error-message');
+        const errorText = document.getElementById('error-text');
+        const successMessage = document.getElementById('success-message');
+        const successText = document.getElementById('success-text');
+
+        // Validación adicional para cantidad de familia
+        const cantidadFamilia = document.querySelector('input[name="cantidad_familia"]');
+        cantidadFamilia.addEventListener('input', function() {
+            if (this.value < 1) {
+                this.value = 1;
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            errorMessage.classList.add('hidden');
+            successMessage.classList.add('hidden');
+
+            const formData = new FormData(form);
+
+            // Validaciones adicionales
+            const ci = formData.get('ci');
+            if (ci.length < 7 || ci.length > 8) {
+                showError('La cédula debe tener entre 7 y 8 dígitos.');
+                return;
+            }
+
+            const celular = formData.get('telefono_celular');
+            if (celular.length < 8 || celular.length > 9) {
+                showError('El teléfono celular debe tener entre 8 y 9 dígitos.');
+                return;
+            }
+
+            const familia = formData.get('cantidad_familia');
+            if (familia < 1) {
+                showError('La cantidad de personas en el hogar debe ser al menos 1.');
+                return;
+            }
+
+            try {
+                const response = await fetch('../../api_usuarios/registrar_solicitud.php', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    showSuccess(data.message + ' Redirigiendo al home...');
+                    form.reset();
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 2000);
+                } else {
+                    showError(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showError('Error de conexión. Por favor, intente nuevamente.');
+            }
+        });
+
+        function showError(message) {
+            errorText.textContent = message;
+            errorMessage.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showSuccess(message) {
+            successText.textContent = message;
+            successMessage.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

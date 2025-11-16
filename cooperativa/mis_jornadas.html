@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Jornadas - Cooperativa Vista Linda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'coop-green': '#679436',
+                        'coop-blue': '#05668d'
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-montserrat">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gradient-to-b from-coop-green to-green-700 text-white flex-shrink-0">
+            <div class="p-6">
+                <div class="flex items-center space-x-3 mb-8">
+                    <img src="../multimedia/logo_cooperativa.svg" alt="Vista Linda" class="w-10 h-10">
+                    <span class="text-xl font-bold">Vista Linda</span>
+                </div>
+                
+                <nav class="space-y-2">
+                    <a href="dashboard.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                        <span class="font-semibold">Mi Dashboard</span>
+                    </a>
+                    
+                    <a href="mis_pagos.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
+                            <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-semibold">Mis Pagos</span>
+                    </a>
+                    
+                    <a href="mis_jornadas.html" class="flex items-center space-x-3 bg-white bg-opacity-20 px-4 py-3 rounded-lg transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-bold">Mis Jornadas</span>
+                    </a>
+                    
+                    <a href="mi_perfil.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-semibold">Mi Perfil</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-coop-blue text-white shadow-lg">
+                <div class="px-6 py-4 flex justify-between items-center">
+                    <h1 class="text-2xl font-bold">Cooperativa Vista Linda</h1>
+                    <button onclick="logout()" class="flex items-center space-x-2 bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-bold">Cerrar Sesión</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <main class="flex-1 overflow-y-auto p-6">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-coop-blue mb-2">Mis Jornadas de Trabajo</h2>
+                    <p class="text-gray-600 font-semibold">Registra y gestiona tus horas de trabajo semanales</p>
+                </div>
+
+                <!-- Resumen Semanal -->
+                <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-xl font-bold text-coop-blue">Resumen Semanal</h3>
+                        <span class="text-sm text-gray-600 font-semibold">Semana: <span id="semana-actual">Cargando...</span></span>
+                    </div>
+
+                    <!-- Barra de progreso -->
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-sm font-semibold text-gray-700">Horas completadas</span>
+                            <span class="text-sm font-bold text-coop-blue"><span id="horas-completadas">0</span> / 21 horas</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div id="barra-progreso" class="bg-gradient-to-r from-coop-green to-green-600 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Tarjetas de resumen -->
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="bg-green-50 rounded-lg p-4 border-l-4 border-green-500">
+                            <p class="text-sm text-gray-600 font-semibold mb-1">Aprobadas</p>
+                            <p class="text-2xl font-bold text-green-600"><span id="horas-aprobadas">0</span>h</p>
+                        </div>
+                        <div class="bg-yellow-50 rounded-lg p-4 border-l-4 border-yellow-500">
+                            <p class="text-sm text-gray-600 font-semibold mb-1">Pendientes</p>
+                            <p class="text-2xl font-bold text-yellow-600"><span id="horas-pendientes">0</span>h</p>
+                        </div>
+                        <div class="bg-red-50 rounded-lg p-4 border-l-4 border-red-500">
+                            <p class="text-sm text-gray-600 font-semibold mb-1">No Cumplidas</p>
+                            <p class="text-2xl font-bold text-red-600"><span id="horas-no-cumplidas">0</span>h</p>
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
+                            <p class="text-sm text-gray-600 font-semibold mb-1">Restantes</p>
+                            <p class="text-2xl font-bold text-blue-600"><span id="horas-restantes">21</span>h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botones de acción -->
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <button onclick="abrirModalTrabajadas()" class="flex items-center justify-center space-x-3 bg-gradient-to-r from-coop-green to-green-700 hover:from-green-700 hover:to-coop-green text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Registrar Horas Trabajadas</span>
+                    </button>
+
+                    <button onclick="abrirModalNoCumplidas()" class="flex items-center justify-center space-x-3 bg-gradient-to-r from-red-500 to-red-700 hover:from-red-700 hover:to-red-500 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Registrar Horas No Cumplidas</span>
+                    </button>
+                </div>
+
+                <!-- Historial de Jornadas -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="p-6 border-b border-gray-200">
+                        <h3 class="text-xl font-bold text-coop-blue">Historial de Jornadas</h3>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-coop-blue text-white">
+                                <tr>
+                                    <th class="px-6 py-4 text-left font-bold">FECHA</th>
+                                    <th class="px-6 py-4 text-left font-bold">TIPO</th>
+                                    <th class="px-6 py-4 text-left font-bold">HORAS</th>
+                                    <th class="px-6 py-4 text-left font-bold">DESCRIPCIÓN</th>
+                                    <th class="px-6 py-4 text-left font-bold">ESTADO</th>
+                                    <th class="px-6 py-4 text-left font-bold">VERIFICADO</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-jornadas" class="divide-y divide-gray-200">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Estado vacío -->
+                    <div id="sin-jornadas" class="hidden p-12 text-center">
+                        <svg class="w-20 h-20 mx-auto text-gray-300 mb-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <p class="text-gray-500 font-semibold text-lg">No hay jornadas registradas</p>
+                        <p class="text-gray-400 font-semibold">Comienza registrando tus horas de trabajo</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal Registrar Horas Trabajadas -->
+    <div id="modal-trabajadas" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full">
+            <div class="flex justify-between items-center p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-coop-blue">Registrar Horas Trabajadas</h3>
+                <button onclick="cerrarModalTrabajadas()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+            </div>
+
+            <form id="form-trabajadas" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Fecha *</label>
+                    <input type="date" name="fecha" required
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Horas Trabajadas *</label>
+                    <input type="number" name="horas" min="0.5" max="12" step="0.5" required
+                        placeholder="Ej: 4"
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue">
+                    <p class="text-xs text-gray-500 mt-1 font-semibold">Mínimo 0.5 horas, máximo 12 horas por día</p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Descripción de actividades *</label>
+                    <textarea name="descripcion" rows="4" required
+                        placeholder="Describe las actividades realizadas..."
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue resize-none"></textarea>
+                </div>
+
+                <div class="flex gap-3 pt-4">
+                    <button type="submit" 
+                        class="flex-1 bg-gradient-to-r from-coop-green to-green-700 hover:from-green-700 hover:to-coop-green text-white font-bold py-3 rounded-lg transition">
+                        Registrar
+                    </button>
+                    <button type="button" onclick="cerrarModalTrabajadas()"
+                        class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-lg transition">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Registrar Horas No Cumplidas -->
+    <div id="modal-no-cumplidas" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full">
+            <div class="flex justify-between items-center p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-red-600">Registrar Horas No Cumplidas</h3>
+                <button onclick="cerrarModalNoCumplidas()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Alerta informativa -->
+            <div class="m-6 bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
+                <div class="flex items-start">
+                    <svg class="w-6 h-6 text-yellow-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                    </svg>
+                    <p class="text-sm text-yellow-800 font-bold">Importante: Cada hora no cumplida requiere un pago compensatorio de $400.</p>
+                </div>
+            </div>
+
+            <form id="form-no-cumplidas" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Fecha *</label>
+                    <input type="date" name="fecha" required
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Horas No Cumplidas *</label>
+                    <input type="number" name="horas" min="0.5" step="0.5" required
+                        placeholder="Ej: 2"
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                    <p class="text-xs text-gray-500 mt-1 font-semibold">Mínimo 0.5 horas</p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Motivo *</label>
+                    <textarea name="motivo" rows="4" required
+                        placeholder="Explica el motivo por el cual no pudiste cumplir estas horas..."
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 resize-none"></textarea>
+                </div>
+
+                <!-- Pago compensatorio calculado -->
+                <div class="bg-blue-50 rounded-lg p-4 border-l-4 border-blue-500">
+                    <p class="text-sm text-gray-700 font-semibold mb-1">Pago Compensatorio:</p>
+                    <p class="text-2xl font-bold text-blue-600">$<span id="pago-compensatorio">0</span></p>
+                </div>
+
+                <div class="flex gap-3 pt-4">
+                    <button type="submit" 
+                        class="flex-1 bg-gradient-to-r from-red-500 to-red-700 hover:from-red-700 hover:to-red-500 text-white font-bold py-3 rounded-lg transition">
+                        Registrar
+                    </button>
+                    <button type="button" onclick="cerrarModalNoCumplidas()"
+                        class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-lg transition">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Subir Comprobante del Pago Compensatorio -->
+    <div id="modal-subir-comprobante" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full">
+            <div class="flex justify-between items-center p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-coop-blue">Subir Comprobante de Pago</h3>
+                <button onclick="cerrarModalComprobante()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="p-6">
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded mb-6">
+                    <p class="text-sm text-blue-800 font-bold">Monto del pago: $<span id="monto-comprobante">0</span></p>
+                    <p class="text-xs text-blue-700 mt-1">Sube el comprobante de tu pago compensatorio</p>
+                </div>
+
+                <form id="form-subir-comprobante" class="space-y-4">
+                    <input type="hidden" id="id-pago-comprobante" name="id_pago_actualizar">
+                    
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2">Comprobante *</label>
+                        <div class="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-coop-blue transition">
+                            <div class="space-y-1 text-center">
+                                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                    <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <div class="flex text-sm text-gray-600">
+                                    <label for="comprobante-pago" class="relative cursor-pointer bg-white rounded-md font-bold text-coop-blue hover:text-coop-green">
+                                        <span>Seleccionar archivo</span>
+                                        <input id="comprobante-pago" name="comprobante" type="file" accept=".jpg,.jpeg,.png,.pdf" required class="sr-only">
+                                    </label>
+                                    <p class="pl-1 font-semibold">o arrastrar aquí</p>
+                                </div>
+                                <p class="text-xs text-gray-500 font-semibold">JPG, PNG o PDF (máx. 5MB)</p>
+                            </div>
+                        </div>
+                        <p id="file-name-comprobante" class="mt-2 text-sm text-gray-600 font-semibold"></p>
+                    </div>
+
+                    <div class="flex gap-3 pt-4">
+                        <button type="submit" 
+                            class="flex-1 bg-gradient-to-r from-coop-blue to-teal-700 hover:from-teal-700 hover:to-coop-blue text-white font-bold py-3 rounded-lg transition">
+                            Subir Comprobante
+                        </button>
+                        <button type="button" onclick="cerrarModalComprobante()"
+                            class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-lg transition">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Verificar sesión
+        async function verificarSesion() {
+            try {
+                const response = await fetch('../../api_usuarios/verificar_sesion.php', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+
+                if (!data.success || data.tipo_usuario !== 'socio') {
+                    window.location.href = '../landing/login.html';
+                    return;
+                }
+
+                if (data.perfil_completo == 0) {
+                    window.location.href = 'pago_inicial.html';
+                    return;
+                }
+
+                cargarJornadas();
+                calcularSemanaActual();
+            } catch (error) {
+                console.error('Error:', error);
+                window.location.href = '../landing/login.html';
+            }
+        }
+
+        // Calcular semana actual
+        function calcularSemanaActual() {
+            const hoy = new Date();
+            const dia = hoy.getDay();
+            const diff = hoy.getDate() - dia + (dia === 0 ? -6 : 1); // Lunes
+            
+            const lunes = new Date(hoy.setDate(diff));
+            const viernes = new Date(lunes);
+            viernes.setDate(lunes.getDate() + 4);
+
+            const formatoFecha = (fecha) => {
+                const dia = fecha.getDate().toString().padStart(2, '0');
+                const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
+                return `${dia}/${mes}`;
+            };
+
+            document.getElementById('semana-actual').textContent = 
+                `Lun ${formatoFecha(lunes)} - Vie ${formatoFecha(viernes)}`;
+        }
+
+        // Cargar jornadas
+        async function cargarJornadas() {
+            try {
+                const response = await fetch('../../api_cooperativa/mis_jornadas.php', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    mostrarJornadas(data.jornadas);
+                    calcularResumen(data.jornadas);
+                }
+            } catch (error) {
+                console.error('Error al cargar jornadas:', error);
+            }
+        }
+
+        // Calcular resumen
+        function calcularResumen(jornadas) {
+            const aprobadas = jornadas.filter(j => 
+                (j.estado === 'Aprobada' || j.estado === 'aprobada') && 
+                (j.tipo === 'Trabajadas' || j.tipo_raw === 'trabajadas')
+            ).reduce((sum, j) => sum + parseFloat(j.horas), 0);
+            
+            const pendientes = jornadas.filter(j => 
+                j.estado === 'Pendiente' || j.estado === 'pendiente'
+            ).reduce((sum, j) => sum + parseFloat(j.horas), 0);
+            
+            const noCumplidas = jornadas.filter(j => 
+                j.tipo === 'No Cumplidas' || j.tipo_raw === 'compensatorio'
+            ).reduce((sum, j) => sum + parseFloat(j.horas), 0);
+            
+            const restantes = Math.max(0, 21 - aprobadas);
+            const porcentaje = Math.min(100, (aprobadas / 21) * 100);
+
+            document.getElementById('horas-aprobadas').textContent = aprobadas.toFixed(1);
+            document.getElementById('horas-pendientes').textContent = pendientes.toFixed(1);
+            document.getElementById('horas-no-cumplidas').textContent = noCumplidas.toFixed(1);
+            document.getElementById('horas-restantes').textContent = restantes.toFixed(1);
+            document.getElementById('horas-completadas').textContent = aprobadas.toFixed(1);
+            document.getElementById('barra-progreso').style.width = porcentaje + '%';
+            
+            // Cambiar color de la barra según progreso
+            const barra = document.getElementById('barra-progreso');
+            if (porcentaje >= 100) {
+                barra.className = 'bg-gradient-to-r from-green-500 to-green-600 h-3 rounded-full transition-all duration-500';
+            } else if (porcentaje >= 75) {
+                barra.className = 'bg-gradient-to-r from-coop-green to-green-600 h-3 rounded-full transition-all duration-500';
+            } else if (porcentaje >= 50) {
+                barra.className = 'bg-gradient-to-r from-yellow-500 to-yellow-600 h-3 rounded-full transition-all duration-500';
+            } else {
+                barra.className = 'bg-gradient-to-r from-red-500 to-red-600 h-3 rounded-full transition-all duration-500';
+            }
+        }
+
+        // Mostrar jornadas
+        function mostrarJornadas(jornadas) {
+            const tabla = document.getElementById('tabla-jornadas');
+            const sinJornadas = document.getElementById('sin-jornadas');
+
+            if (!jornadas || jornadas.length === 0) {
+                tabla.innerHTML = '';
+                sinJornadas.classList.remove('hidden');
+                return;
+            }
+
+            sinJornadas.classList.add('hidden');
+            tabla.innerHTML = jornadas.map(j => {
+                const estadoClass = {
+                    'Pendiente': 'bg-yellow-100 text-yellow-800',
+                    'Aprobada': 'bg-green-100 text-green-800',
+                    'Aprobado': 'bg-green-100 text-green-800',
+                    'Rechazada': 'bg-red-100 text-red-800',
+                    'Rechazado': 'bg-red-100 text-red-800'
+                }[j.estado] || 'bg-gray-100 text-gray-800';
+
+                const tipoClass = j.tipo === 'Trabajadas' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800';
+
+                return `
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4 font-semibold text-gray-700">${new Date(j.fecha).toLocaleDateString('es-UY')}</td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold ${tipoClass}">${j.tipo}</span>
+                        </td>
+                        <td class="px-6 py-4 font-bold text-gray-900">${parseFloat(j.horas).toFixed(1)}h</td>
+                        <td class="px-6 py-4 text-gray-600 font-semibold">${j.descripcion || 'N/A'}</td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold ${estadoClass}">${j.estado}</span>
+                        </td>
+                        <td class="px-6 py-4 font-semibold text-gray-700">${j.verificado_por || 'Pendiente'}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Modal Trabajadas
+        function abrirModalTrabajadas() {
+            document.getElementById('modal-trabajadas').classList.remove('hidden');
+        }
+
+        function cerrarModalTrabajadas() {
+            document.getElementById('modal-trabajadas').classList.add('hidden');
+            document.getElementById('form-trabajadas').reset();
+        }
+
+        document.getElementById('form-trabajadas').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+
+            try {
+                const response = await fetch('../../api_cooperativa/registrar_jornada.php', {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'include'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert('¡Jornada registrada exitosamente! Espera la aprobación del administrador.');
+                    cerrarModalTrabajadas();
+                    cargarJornadas();
+                } else {
+                    alert(data.message || 'Error al registrar la jornada');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error de conexión');
+            }
+        });
+
+        // Modal No Cumplidas
+        function abrirModalNoCumplidas() {
+            document.getElementById('modal-no-cumplidas').classList.remove('hidden');
+        }
+
+        function cerrarModalNoCumplidas() {
+            document.getElementById('modal-no-cumplidas').classList.add('hidden');
+            document.getElementById('form-no-cumplidas').reset();
+            document.getElementById('pago-compensatorio').textContent = '0';
+        }
+
+        // Calcular pago compensatorio
+        document.querySelector('#form-no-cumplidas input[name="horas"]').addEventListener('input', function() {
+            const horas = parseFloat(this.value) || 0;
+            const pago = horas * 400;
+            document.getElementById('pago-compensatorio').textContent = pago.toFixed(2);
+        });
+
+        let idPagoPendiente = null;
+        let montoPagoPendiente = 0;
+
+        document.getElementById('form-no-cumplidas').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+
+            try {
+                const response = await fetch('../../api_cooperativa/registrar_horas_no_cumplidas.php', {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'include'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Guardar datos del pago generado
+                    idPagoPendiente = data.id_pago;
+                    montoPagoPendiente = data.pago_compensatorio;
+                    
+                    // Cerrar modal de horas no cumplidas
+                    cerrarModalNoCumplidas();
+                    
+                    // Mostrar mensaje
+                    alert(`Horas no cumplidas registradas. Pago compensatorio: $${data.pago_compensatorio}\n\nAhora sube el comprobante de pago.`);
+                    
+                    // Abrir modal para subir comprobante
+                    abrirModalComprobante(idPagoPendiente, montoPagoPendiente);
+                    
+                    // Recargar jornadas
+                    cargarJornadas();
+                } else {
+                    alert(data.message || 'Error al registrar');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error de conexión');
+            }
+        });
+
+        // Funciones para el modal de comprobante
+        function abrirModalComprobante(idPago, monto) {
+            document.getElementById('id-pago-comprobante').value = idPago;
+            document.getElementById('monto-comprobante').textContent = parseFloat(monto).toFixed(2);
+            document.getElementById('modal-subir-comprobante').classList.remove('hidden');
+        }
+
+        function cerrarModalComprobante() {
+            document.getElementById('modal-subir-comprobante').classList.add('hidden');
+            document.getElementById('form-subir-comprobante').reset();
+            document.getElementById('file-name-comprobante').textContent = '';
+            idPagoPendiente = null;
+            montoPagoPendiente = 0;
+        }
+
+        // Mostrar nombre de archivo seleccionado
+        document.getElementById('comprobante-pago').addEventListener('change', function() {
+            const fileName = document.getElementById('file-name-comprobante');
+            if (this.files.length > 0) {
+                fileName.textContent = `Archivo seleccionado: ${this.files[0].name}`;
+            }
+        });
+
+        // Submit formulario comprobante
+        document.getElementById('form-subir-comprobante').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const file = document.getElementById('comprobante-pago').files[0];
+
+            if (!file) {
+                alert('Debe seleccionar un comprobante');
+                return;
+            }
+
+            if (file.size > 5 * 1024 * 1024) {
+                alert('El archivo es demasiado grande. Máximo 5MB');
+                return;
+            }
+
+            try {
+                const response = await fetch('../../api_cooperativa/subir_pago.php', {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'include'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert('¡Comprobante subido exitosamente! El pago será revisado por un administrador.');
+                    cerrarModalComprobante();
+                } else {
+                    alert(data.message || 'Error al subir el comprobante');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error de conexión');
+            }
+        });
+
+        // Logout
+        async function logout() {
+            try {
+                await fetch('../../api_usuarios/logout.php', { credentials: 'include' });
+                window.location.href = '../landing/login.html';
+            } catch (error) {
+                window.location.href = '../landing/login.html';
+            }
+        }
+
+        // Inicializar
+        verificarSesion();
+    </script>
+</body>
+</html>

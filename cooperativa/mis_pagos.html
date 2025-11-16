@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Pagos - Cooperativa Vista Linda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'coop-green': '#679436',
+                        'coop-blue': '#05668d'
+                    },
+                    fontFamily: {
+                        'montserrat': ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-montserrat">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-gradient-to-b from-coop-green to-green-700 text-white flex-shrink-0">
+            <div class="p-6">
+                <div class="flex items-center space-x-3 mb-8">
+                    <img src="../multimedia/logo_cooperativa.svg" alt="Vista Linda" class="w-10 h-10">
+                    <span class="text-xl font-bold">Vista Linda</span>
+                </div>
+                
+                <nav class="space-y-2">
+                    <a href="dashboard.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                        </svg>
+                        <span class="font-semibold">Mi Dashboard</span>
+                    </a>
+                    
+                    <a href="mis_pagos.html" class="flex items-center space-x-3 bg-white bg-opacity-20 px-4 py-3 rounded-lg transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
+                            <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-bold">Mis Pagos</span>
+                    </a>
+                    
+                    <a href="mis_jornadas.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-semibold">Mis Jornadas</span>
+                    </a>
+                    
+                    <a href="mi_perfil.html" class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-semibold">Mi Perfil</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Header -->
+            <header class="bg-coop-blue text-white shadow-lg">
+                <div class="px-6 py-4 flex justify-between items-center">
+                    <h1 class="text-2xl font-bold">Cooperativa Vista Linda</h1>
+                    <button onclick="logout()" class="flex items-center space-x-2 bg-white bg-opacity-20 hover:bg-opacity-30 px-4 py-2 rounded-lg transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-bold">Cerrar Sesión</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <main class="flex-1 overflow-y-auto p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold text-coop-blue">Mis Pagos</h2>
+                    <button onclick="abrirModalSubirPago()" class="bg-gradient-to-r from-coop-green to-green-700 hover:from-green-700 hover:to-coop-green text-white font-bold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition flex items-center space-x-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>+ Subir Nuevo Pago</span>
+                    </button>
+                </div>
+
+                <!-- Alertas de Pagos Rechazados y Aprobados -->
+                <div id="alertas-pagos" class="space-y-4 mb-6">
+                    <!-- Se llenarán dinámicamente -->
+                </div>
+
+                <!-- Filtros por tipo -->
+                <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                    <div class="flex flex-wrap gap-3">
+                        <button onclick="filtrarPagos('Todos')" class="filtro-btn active px-6 py-2 rounded-lg font-bold transition">
+                            Todos
+                        </button>
+                        <button onclick="filtrarPagos('Inicial')" class="filtro-btn px-6 py-2 rounded-lg font-bold transition">
+                            Iniciales
+                        </button>
+                        <button onclick="filtrarPagos('Mensual')" class="filtro-btn px-6 py-2 rounded-lg font-bold transition">
+                            Mensuales
+                        </button>
+                        <button onclick="filtrarPagos('Compensatorio')" class="filtro-btn px-6 py-2 rounded-lg font-bold transition">
+                            Compensatorios
+                        </button>
+                        <button onclick="filtrarPagos('Pendiente')" class="filtro-btn px-6 py-2 rounded-lg font-bold transition">
+                            Pendientes de Comprobante
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tabla de Pagos -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-coop-blue text-white">
+                                <tr>
+                                    <th class="px-6 py-4 text-left font-bold">TIPO</th>
+                                    <th class="px-6 py-4 text-left font-bold">MONTO</th>
+                                    <th class="px-6 py-4 text-left font-bold">FECHA PAGO</th>
+                                    <th class="px-6 py-4 text-left font-bold">FECHA SUBIDA</th>
+                                    <th class="px-6 py-4 text-left font-bold">ESTADO</th>
+                                    <th class="px-6 py-4 text-left font-bold">ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-pagos" class="divide-y divide-gray-200">
+                                <!-- Se llenará dinámicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Estado vacío -->
+                    <div id="sin-pagos" class="hidden p-12 text-center">
+                        <svg class="w-20 h-20 mx-auto text-gray-300 mb-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
+                            <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <p class="text-gray-500 font-semibold text-lg">No hay pagos registrados</p>
+                        <p class="text-gray-400 font-semibold">Comienza subiendo tu primer pago</p>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal Ver Detalles -->
+    <div id="modal-detalles" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center p-6 border-b border-gray-200 sticky top-0 bg-white">
+                <h3 class="text-2xl font-bold text-coop-blue">Detalle del Pago</h3>
+                <button onclick="cerrarModalDetalles()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="contenido-detalles" class="p-6">
+                <!-- Se llenará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Subir Nuevo Pago -->
+    <div id="modal-subir-pago" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full">
+            <div class="flex justify-between items-center p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-coop-blue">Subir Nuevo Pago</h3>
+                <button onclick="cerrarModalSubirPago()" class="text-gray-400 hover:text-gray-600">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                    </svg>
+                </button>
+            </div>
+
+            <form id="form-subir-pago" class="p-6 space-y-4">
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Tipo de Pago *</label>
+                    <select name="tipo_pago" required onchange="actualizarMonto(this.value)"
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue">
+                        <option value="">Seleccionar tipo</option>
+                        <option value="mensual">Cuota Mensual</option>
+                        <option value="compensatorio">Pago Compensatorio</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Monto *</label>
+                    <input type="number" name="monto" required step="0.01" min="0"
+                        placeholder="Ej: 5000.00"
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Fecha del Pago *</label>
+                    <input type="date" name="fecha_pago" required
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue">
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Comprobante *</label>
+                    <div class="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-coop-blue transition">
+                        <div class="space-y-1 text-center">
+                            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <div class="flex text-sm text-gray-600">
+                                <label for="comprobante" class="relative cursor-pointer bg-white rounded-md font-bold text-coop-blue hover:text-coop-green">
+                                    <span>Seleccionar archivo</span>
+                                    <input id="comprobante" name="comprobante" type="file" accept=".jpg,.jpeg,.png,.pdf" required class="sr-only">
+                                </label>
+                                <p class="pl-1 font-semibold">o arrastrar aquí</p>
+                            </div>
+                            <p class="text-xs text-gray-500 font-semibold">JPG, PNG o PDF (máx. 5MB)</p>
+                        </div>
+                    </div>
+                    <p id="file-name" class="mt-2 text-sm text-gray-600 font-semibold"></p>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-2">Descripción (opcional)</label>
+                    <textarea name="descripcion" rows="3"
+                        placeholder="Información adicional sobre el pago..."
+                        class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-coop-blue focus:border-coop-blue resize-none"></textarea>
+                </div>
+
+                <div class="flex gap-3 pt-4">
+                    <button type="submit" 
+                        class="flex-1 bg-gradient-to-r from-coop-blue to-teal-700 hover:from-teal-700 hover:to-coop-blue text-white font-bold py-3 rounded-lg transition">
+                        Subir Pago
+                    </button>
+                    <button type="button" onclick="cerrarModalSubirPago()"
+                        class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-lg transition">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let todosPagos = [];
+        let filtroActual = 'Todos';
+
+        // Verificar sesión
+        async function verificarSesion() {
+            try {
+                const response = await fetch('../../api_usuarios/verificar_sesion.php', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+
+                if (!data.success || data.tipo_usuario !== 'socio') {
+                    window.location.href = '../landing/login.html';
+                    return;
+                }
+
+                if (data.perfil_completo == 0) {
+                    window.location.href = 'pago_inicial.html';
+                    return;
+                }
+
+                cargarPagos();
+            } catch (error) {
+                console.error('Error:', error);
+                window.location.href = '../landing/login.html';
+            }
+        }
+
+        // Cargar pagos
+        async function cargarPagos() {
+            try {
+                const response = await fetch('../../api_cooperativa/mis_pagos.php', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+
+                if (data.success) {
+                    todosPagos = data.pagos;
+                    mostrarAlertas(todosPagos);
+                    filtrarPagos(filtroActual);
+                }
+            } catch (error) {
+                console.error('Error al cargar pagos:', error);
+            }
+        }
+
+        // Mostrar alertas
+        function mostrarAlertas(pagos) {
+            const contenedor = document.getElementById('alertas-pagos');
+            contenedor.innerHTML = '';
+
+            // Pagos rechazados
+            const rechazados = pagos.filter(p => p.estado === 'Rechazado');
+            rechazados.forEach(p => {
+                const div = document.createElement('div');
+                div.className = 'bg-red-50 border-l-4 border-red-500 p-4 rounded flex items-start justify-between';
+                div.innerHTML = `
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 text-red-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <div>
+                            <p class="font-bold text-red-900">Pago ${p.tipo.toLowerCase()} rechazado</p>
+                            <p class="text-sm text-red-700 font-semibold">Monto: $${parseFloat(p.monto).toFixed(2)} - Fecha: ${new Date(p.fecha_pago).toLocaleDateString('es-UY')}</p>
+                            <p class="text-sm text-red-700 font-semibold mt-1"><strong>Motivo:</strong> ${p.motivo_rechazo || 'no coincide'}</p>
+                        </div>
+                    </div>
+                    <button onclick="cerrarAlerta(this)" class="text-red-400 hover:text-red-600">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                `;
+                contenedor.appendChild(div);
+            });
+
+            // Pago inicial aprobado
+            const inicialAprobado = pagos.find(p => p.tipo === 'Inicial' && p.estado === 'Aprobado');
+            if (inicialAprobado) {
+                const div = document.createElement('div');
+                div.className = 'bg-green-50 border-l-4 border-green-500 p-4 rounded flex items-start justify-between';
+                div.innerHTML = `
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        <div>
+                            <p class="font-bold text-green-900">Pago inicial aprobado</p>
+                            <p class="text-sm text-green-700 font-semibold">Monto: $${parseFloat(inicialAprobado.monto).toFixed(2)} - Fecha: ${new Date(inicialAprobado.fecha_pago).toLocaleDateString('es-UY')}</p>
+                        </div>
+                    </div>
+                    <button onclick="cerrarAlerta(this)" class="text-green-400 hover:text-green-600">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                        </svg>
+                    </button>
+                `;
+                contenedor.appendChild(div);
+            }
+        }
+
+        function cerrarAlerta(btn) {
+            btn.closest('div').remove();
+        }
+
+        // Filtrar pagos
+        // Filtrar pagos
+        function filtrarPagos(filtro) {
+            filtroActual = filtro;
+            
+            // Actualizar botones - no usar event.target
+            document.querySelectorAll('.filtro-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-coop-blue', 'text-white');
+                btn.classList.add('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+            });
+            
+            // Marcar el botón activo buscándolo por el texto
+            const botones = document.querySelectorAll('.filtro-btn');
+            botones.forEach(btn => {
+                const textoBoton = btn.textContent.trim();
+                if ((filtro === 'Todos' && textoBoton === 'Todos') ||
+                    (filtro === 'Inicial' && textoBoton === 'Iniciales') ||
+                    (filtro === 'Mensual' && textoBoton === 'Mensuales') ||
+                    (filtro === 'Compensatorio' && textoBoton === 'Compensatorios') ||
+                    (filtro === 'Pendiente' && textoBoton === 'Pendientes de Comprobante')) {
+                    btn.classList.add('active', 'bg-coop-blue', 'text-white');
+                    btn.classList.remove('bg-gray-100', 'text-gray-700', 'hover:bg-gray-200');
+                }
+            });
+
+            // Filtrar
+            let pagosFiltrados = todosPagos;
+            if (filtro !== 'Todos') {
+                if (filtro === 'Pendiente') {
+                    pagosFiltrados = todosPagos.filter(p => p.estado === 'Pendiente' && !p.comprobante);
+                } else {
+                    pagosFiltrados = todosPagos.filter(p => p.tipo === filtro);
+                }
+            }
+
+            mostrarPagos(pagosFiltrados);
+        }
+
+        // Mostrar pagos en tabla
+        function mostrarPagos(pagos) {
+            const tabla = document.getElementById('tabla-pagos');
+            const sinPagos = document.getElementById('sin-pagos');
+
+            if (!pagos || pagos.length === 0) {
+                tabla.innerHTML = '';
+                sinPagos.classList.remove('hidden');
+                return;
+            }
+
+            sinPagos.classList.add('hidden');
+            tabla.innerHTML = pagos.map(p => {
+                const estadoClass = {
+                    'Pendiente': 'bg-yellow-100 text-yellow-800',
+                    'Aprobado': 'bg-green-100 text-green-800',
+                    'Rechazado': 'bg-red-100 text-red-800',
+                    'Sin_comprobante': 'bg-gray-100 text-gray-800',
+                    'Sin Comprobante': 'bg-gray-100 text-gray-800'
+                }[p.estado] || 'bg-gray-100 text-gray-800';
+
+                const tipoClass = {
+                    'Inicial': 'bg-blue-100 text-blue-800',
+                    'Mensual': 'bg-green-100 text-green-800',
+                    'Compensatorio': 'bg-purple-100 text-purple-800'
+                }[p.tipo] || 'bg-gray-100 text-gray-800';
+
+                // Determinar el botón de acción según el estado
+                let accionBoton = '';
+                const estadoNormalizado = (p.estado || '').toLowerCase().replace(/[_\s]/g, '');
+                const estadoRaw = (p.estado_raw || '').toLowerCase();
+
+                if (estadoNormalizado === 'sincomprobante' || estadoRaw === 'sin_comprobante') {
+                    // Si el pago está sin comprobante, mostrar botón para subirlo
+                    accionBoton = `
+                        <button onclick='abrirModalSubirComprobanteExistente(${JSON.stringify(p).replace(/'/g, "&#39;")})' 
+                            class="bg-coop-green hover:bg-green-700 text-white font-bold px-4 py-2 rounded-lg transition text-sm">
+                            Subir Comprobante
+                        </button>
+                    `;
+                } else {
+                    // Para cualquier otro estado, mostrar botón de ver detalle
+                    accionBoton = `
+                        <button onclick='verDetalles(${JSON.stringify(p).replace(/'/g, "&#39;")})' 
+                            class="text-coop-blue hover:text-coop-green font-bold transition">
+                            Ver Detalle
+                        </button>
+                    `;
+                }
+
+                return `
+                    <tr class="hover:bg-gray-50">
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold ${tipoClass}">${p.tipo}</span>
+                        </td>
+                        <td class="px-6 py-4 font-bold text-gray-900">$${parseFloat(p.monto).toFixed(2)}</td>
+                        <td class="px-6 py-4 font-semibold text-gray-700">${new Date(p.fecha_pago).toLocaleDateString('es-UY')}</td>
+                        <td class="px-6 py-4 font-semibold text-gray-700">${new Date(p.fecha_subida).toLocaleDateString('es-UY')}</td>
+                        <td class="px-6 py-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold ${estadoClass}">${p.estado.replace('_', ' ')}</span>
+                        </td>
+                        <td class="px-6 py-4">
+                            ${accionBoton}
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+
+
+        // Ver detalles
+        function verDetalles(pago) {
+            const contenido = document.getElementById('contenido-detalles');
+            
+            const estadoClass = {
+                'Pendiente': 'bg-yellow-100 text-yellow-800',
+                'Aprobado': 'bg-green-100 text-green-800',
+                'Rechazado': 'bg-red-100 text-red-800'
+            }[pago.estado];
+
+            contenido.innerHTML = `
+                <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <p class="text-sm text-gray-600 font-semibold mb-1">Tipo:</p>
+                        <p class="font-bold text-gray-900">${pago.tipo}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600 font-semibold mb-1">Monto:</p>
+                        <p class="font-bold text-gray-900">$${parseFloat(pago.monto).toFixed(2)}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600 font-semibold mb-1">Fecha del Pago:</p>
+                        <p class="font-bold text-gray-900">${new Date(pago.fecha_pago).toLocaleDateString('es-UY')}</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-600 font-semibold mb-1">Estado:</p>
+                        <span class="px-3 py-1 rounded-full text-xs font-bold ${estadoClass}">${pago.estado}</span>
+                    </div>
+                    <div class="md:col-span-2">
+                        <p class="text-sm text-gray-600 font-semibold mb-1">Descripción:</p>
+                        <p class="text-gray-700 font-semibold">${pago.descripcion || 'Sin descripción'}</p>
+                    </div>
+                </div>
+
+                ${pago.comprobante ? `
+                    <div class="mb-6">
+                        <h4 class="font-bold text-coop-blue mb-3">Comprobante de Pago</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg border-2 border-gray-200">
+                            <img src="../../uploads/comprobantes/${pago.comprobante}" alt="Comprobante" class="max-w-full rounded">
+                        </div>
+                    </div>
+                ` : '<p class="text-gray-500 font-semibold mb-6">No se ha subido comprobante</p>'}
+            `;
+
+            document.getElementById('modal-detalles').classList.remove('hidden');
+        }
+
+        function cerrarModalDetalles() {
+            document.getElementById('modal-detalles').classList.add('hidden');
+        }
+
+        // Modal Subir Pago
+        function abrirModalSubirPago() {
+            document.getElementById('modal-subir-pago').classList.remove('hidden');
+        }
+
+        function cerrarModalSubirPago() {
+            const cerrarModalSubirPagoOriginal = cerrarModalSubirPago;
+            window.cerrarModalSubirPago = function() {
+                document.getElementById('modal-subir-pago').classList.add('hidden');
+                document.getElementById('form-subir-pago').reset();
+                document.getElementById('file-name').textContent = '';
+                
+                // Restaurar título
+                document.querySelector('#modal-subir-pago h3').textContent = 'Subir Nuevo Pago';
+                
+                // Mostrar todos los campos y RESTAURAR required
+                const tipoPago = document.querySelector('#form-subir-pago select[name="tipo_pago"]');
+                tipoPago.setAttribute('required', '');
+                tipoPago.closest('div').style.display = 'block';
+                
+                const monto = document.querySelector('#form-subir-pago input[name="monto"]');
+                monto.setAttribute('required', '');
+                monto.closest('div').style.display = 'block';
+                
+                const fechaPago = document.querySelector('#form-subir-pago input[name="fecha_pago"]');
+                fechaPago.setAttribute('required', '');
+                fechaPago.closest('div').style.display = 'block';
+                
+                document.querySelector('#form-subir-pago textarea[name="descripcion"]').closest('div').style.display = 'block';
+                
+                // Remover campo oculto
+                document.querySelector('#form-subir-pago input[name="id_pago_actualizar"]')?.remove();
+            };
+        }
+
+        function actualizarMonto(tipo) {
+            const montoInput = document.querySelector('input[name="monto"]');
+            // Aquí puedes prellenar montos según el tipo si lo deseas
+        }
+
+        // Mostrar nombre de archivo seleccionado
+        document.getElementById('comprobante').addEventListener('change', function() {
+            const fileName = document.getElementById('file-name');
+            if (this.files.length > 0) {
+                fileName.textContent = `Archivo seleccionado: ${this.files[0].name}`;
+            }
+        });
+
+        // Submit formulario
+        document.getElementById('form-subir-pago').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const file = document.getElementById('comprobante').files[0];
+
+            if (!file) {
+                alert('Debe seleccionar un comprobante');
+                return;
+            }
+
+            if (file.size > 5 * 1024 * 1024) {
+                alert('El archivo es demasiado grande. Máximo 5MB');
+                return;
+            }
+
+            try {
+                const response = await fetch('../../api_cooperativa/subir_pago.php', {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'include'
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    alert('¡Pago subido exitosamente! Espera la aprobación del administrador.');
+                    cerrarModalSubirPago();
+                    cargarPagos();
+                } else {
+                    alert(data.message || 'Error al subir el pago');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error de conexión');
+            }
+        });
+
+        function abrirModalSubirComprobanteExistente(pago) {
+            // Prellenar el formulario
+            document.querySelector('#form-subir-pago input[name="id_pago_actualizar"]')?.remove();
+            
+            const hiddenInput = document.createElement('input');
+            hiddenInput.type = 'hidden';
+            hiddenInput.name = 'id_pago_actualizar';
+            hiddenInput.value = pago.id_pago;
+            document.getElementById('form-subir-pago').appendChild(hiddenInput);
+            
+            // Abrir modal
+            document.getElementById('modal-subir-pago').classList.remove('hidden');
+            
+            // Cambiar título
+            document.querySelector('#modal-subir-pago h3').textContent = 'Subir Comprobante de Pago Compensatorio';
+            
+            // Ocultar campos y REMOVER required
+            const tipoPago = document.querySelector('#form-subir-pago select[name="tipo_pago"]');
+            tipoPago.removeAttribute('required');
+            tipoPago.closest('div').style.display = 'none';
+            
+            const monto = document.querySelector('#form-subir-pago input[name="monto"]');
+            monto.removeAttribute('required');
+            monto.closest('div').style.display = 'none';
+            
+            const fechaPago = document.querySelector('#form-subir-pago input[name="fecha_pago"]');
+            fechaPago.removeAttribute('required');
+            fechaPago.closest('div').style.display = 'none';
+            
+            document.querySelector('#form-subir-pago textarea[name="descripcion"]').closest('div').style.display = 'none';
+        }
+
+
+
+        // Modificar la función cerrarModalSubirPago existente
+        const cerrarModalSubirPagoOriginal = cerrarModalSubirPago;
+        window.cerrarModalSubirPago = function() {
+            document.getElementById('modal-subir-pago').classList.add('hidden');
+            document.getElementById('form-subir-pago').reset();
+            document.getElementById('file-name').textContent = '';
+            
+            // Restaurar título
+            document.querySelector('#modal-subir-pago h3').textContent = 'Subir Nuevo Pago';
+            
+            // Mostrar todos los campos
+            document.querySelector('#form-subir-pago select[name="tipo_pago"]').closest('div').style.display = 'block';
+            document.querySelector('#form-subir-pago input[name="monto"]').closest('div').style.display = 'block';
+            document.querySelector('#form-subir-pago input[name="fecha_pago"]').closest('div').style.display = 'block';
+            document.querySelector('#form-subir-pago textarea[name="descripcion"]').closest('div').style.display = 'block';
+            
+            // Remover campo oculto
+            document.querySelector('#form-subir-pago input[name="id_pago_actualizar"]')?.remove();
+        };
+
+        // Logout
+        async function logout() {
+            try {
+                await fetch('../../api_usuarios/logout.php', { credentials: 'include' });
+                window.location.href = '../landing/login.html';
+            } catch (error) {
+                window.location.href = '../landing/login.html';
+            }
+        }
+
+        // Inicializar
+        verificarSesion();
+
+        // Estilo para filtro activo
+        const style = document.createElement('style');
+        style.textContent = `
+            .filtro-btn.active {
+                background-color: #05668d !important;
+                color: white !important;
+            }
+            .filtro-btn:not(.active) {
+                background-color: #f3f4f6;
+                color: #374151;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
